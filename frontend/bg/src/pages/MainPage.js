@@ -1,10 +1,12 @@
-import BasicLayout from "../layouts/BasicLayout";
-
+// import BasicLayout from "../layouts/BasicLayout";
+// import BasicMenu from "../components/menus/BasicMenu";
+import Logo from "../components/menus/Logo";
 const MainPage = () => {
   return (
-    <BasicLayout>
-      <div className="text-3xl">Main Page</div>
-    </BasicLayout>
+    <div>
+      {/* <BasicMenu></BasicMenu> */}
+      <Logo></Logo>
+    </div>
   );
 };
 

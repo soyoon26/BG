@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const BasicMenu = () => {
   return (
-    <div className="w-1/5 flex justify-end bg-pink-300 p-4 font-medium">
-      <div className="text-white text-sm m-1 rounded">그만두기</div>
+    <div className=" flex justify-end p-4 font-large">
+      <button className="bg-red-500 text-white p-5 mt-3 rounded-lg">
+        그만두기
+      </button>
     </div>
   );
 };
