@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "CookieBold";
+  src: url("../../public/fonts/CookieRun\ Bold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CookieRegular";
+  src: url("../../public/fonts/CookieRun\ Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}

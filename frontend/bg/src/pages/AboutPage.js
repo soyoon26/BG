@@ -1,10 +1,11 @@
-import BasicLayout from "../layouts/BasicLayout";
+import SelectMenu from "../components/menus/SelectMenu";
 
 const AboutPage = () => {
   return (
-    <BasicLayout>
-      <div className="text-3xl">About Page</div>;
-    </BasicLayout>
+    <div>
+      <SelectMenu></SelectMenu>
+      <div className="font2 text-3xl">soso의 소개</div>
+    </div>
   );
 };
 
