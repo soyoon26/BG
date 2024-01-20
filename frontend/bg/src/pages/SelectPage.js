@@ -13,17 +13,28 @@ const SelectPage = () => {
 
   return (
     <div style={backStyles}>
-      <div className="flex">
-        <Link to={"../about"}>About</Link>
-        {/* 클릭시 추가적 로딩 */}
+      <div className=" flex justify-end p-5 font-large">
+        <Link to={"../about"}>
+          <button className="font3 bg-red-400 text-white p-3 mt-1 rounded-lg">
+            About
+          </button>
+        </Link>
       </div>
-      {/* <img src={background} alt="설정배경" /> */}
-      <div className="select-txt font3 text-8xl mt-20">
-        게임을 선택해주세요!
-      </div>
-      <div className="flex">
-        <img src={phone} alt="번호외우기" className="image" />
-        <img src={card} alt="카드 짝 맞추기" className="image" />
+      {/* 클릭시 추가적 로딩 */}
+      <div className="select-txt font3-sub mt-1">게임을 선택해주세요!</div>
+      <div className="image-container">
+        <div className="game-option text-4xl">
+          <Link to={"../game"}>
+            <img src={card} alt="카드 짝 맞추기" className="image" />
+          </Link>
+          <div className="font4">카드 짝 맞추기</div>
+        </div>
+        <div className="game-option">
+          <Link to={"../game"}>
+            <img src={phone} alt="번호외우기" className="image" />
+          </Link>
+          <div className="font4">번호 거꾸로 외우기</div>
+        </div>
       </div>
     </div>
   );

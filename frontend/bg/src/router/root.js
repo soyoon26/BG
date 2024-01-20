@@ -7,6 +7,8 @@ const Main = lazy(() => import("../pages/MainPage"));
 const About = lazy(() => import("../pages/AboutPage"));
 const Select = lazy(() => import("../pages/SelectPage"));
 const SetUp = lazy(() => import("../pages/SetUpPage"));
+const Card = lazy(() => import("../pages/GameCard"));
+const Phone = lazy(() => import("../pages/GamePhone"));
 
 const root = createBrowserRouter([
   {
@@ -38,6 +40,22 @@ const root = createBrowserRouter([
     element: (
       <Suspense fallback={Loading}>
         <SetUp />
+      </Suspense>
+    ),
+  },
+  {
+    path: "game",
+    element: (
+      <Suspense fallback={Loading}>
+        <Card />
+      </Suspense>
+    ),
+  },
+  {
+    path: "game",
+    element: (
+      <Suspense fallback={Loading}>
+        <Phone />
       </Suspense>
     ),
   },
