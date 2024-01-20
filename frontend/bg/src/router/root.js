@@ -6,6 +6,7 @@ const Loading = <div>Loading...</div>; //지연로딩, 필요한 순간까지 �
 const Main = lazy(() => import("../pages/MainPage"));
 const About = lazy(() => import("../pages/AboutPage"));
 const Select = lazy(() => import("../pages/SelectPage"));
+const SetUp = lazy(() => import("../pages/SetUpPage"));
 
 const root = createBrowserRouter([
   {
@@ -29,6 +30,14 @@ const root = createBrowserRouter([
     element: (
       <Suspense fallback={Loading}>
         <Select />
+      </Suspense>
+    ),
+  },
+  {
+    path: "game",
+    element: (
+      <Suspense fallback={Loading}>
+        <SetUp />
       </Suspense>
     ),
   },
