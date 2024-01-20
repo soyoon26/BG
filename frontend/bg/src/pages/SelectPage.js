@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import background from "../images/setup_background.png";
-
+import "./SelectPage.css";
+import "../App.css";
+import card from "../images/짝맞추기.png";
+import phone from "../images/번호외우기.png";
 const SelectPage = () => {
   const backStyles = {
     backgroundImage: `url(${background})`,
@@ -15,7 +18,13 @@ const SelectPage = () => {
         {/* 클릭시 추가적 로딩 */}
       </div>
       {/* <img src={background} alt="설정배경" /> */}
-      <div className="text-3xl">게임 선택하기 화면 </div>
+      <div className="select-txt font3 text-8xl mt-20">
+        게임을 선택해주세요!
+      </div>
+      <div className="flex">
+        <img src={phone} alt="번호외우기" className="image" />
+        <img src={card} alt="카드 짝 맞추기" className="image" />
+      </div>
     </div>
   );
 };

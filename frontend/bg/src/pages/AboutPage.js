@@ -4,7 +4,7 @@ const AboutPage = () => {
   return (
     <div>
       <SelectMenu></SelectMenu>
-      <div className="font2 text-3xl">
+      <div className="font3 text-3xl">
         안녕하세요
         <br />
         저는 병원에서 게임을 하다 모두가 체험해봤으면 좋겠다는 생각에 만들어

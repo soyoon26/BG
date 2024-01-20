@@ -6,7 +6,7 @@ const SelectMenu = () => {
   return (
     <div className=" flex justify-end p-5 font-large">
       <Link to={"../select"}>
-        <button className="font2 bg-red-500 text-white p-5 mt-3 rounded-lg">
+        <button className="font3 bg-red-500 text-white p-5 mt-3 rounded-lg">
           게임 선택화면으로
           <br />
           돌아가기
