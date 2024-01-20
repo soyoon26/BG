@@ -1,11 +1,17 @@
 //about화면에서 나타나기
+import { Link } from "react-router-dom";
 
+import "../../App.css";
 const SelectMenu = () => {
   return (
-    <div className=" flex justify-end p-4 font-large">
-      <button className="font1 bg-red-500 text-white p-5 mt-3 rounded-lg">
-        선택화면으로 돌아가기
-      </button>
+    <div className=" flex justify-end p-5 font-large">
+      <Link to={"../select"}>
+        <button className="font2 bg-red-500 text-white p-5 mt-3 rounded-lg">
+          게임 선택화면으로
+          <br />
+          돌아가기
+        </button>
+      </Link>
     </div>
   );
 };

@@ -1,11 +1,14 @@
 // import BasicLayout from "../layouts/BasicLayout";
 // import BasicMenu from "../components/menus/BasicMenu";
 import Logo from "../components/menus/Logo";
+import { Link } from "react-router-dom";
 const MainPage = () => {
   return (
     <div>
       {/* <BasicMenu></BasicMenu> */}
-      <Logo></Logo>
+      <Link to={"./select"}>
+        <Logo></Logo>
+      </Link>
     </div>
   );
 };

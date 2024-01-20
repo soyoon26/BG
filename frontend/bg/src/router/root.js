@@ -5,6 +5,7 @@ const { createBrowserRouter } = require("react-router-dom");
 const Loading = <div>Loading...</div>; //지연로딩, 필요한 순간까지 컴포넌트를 메모리상으로 올리지 않도록
 const Main = lazy(() => import("../pages/MainPage"));
 const About = lazy(() => import("../pages/AboutPage"));
+const Select = lazy(() => import("../pages/SelectPage"));
 
 const root = createBrowserRouter([
   {
@@ -20,6 +21,14 @@ const root = createBrowserRouter([
     element: (
       <Suspense fallback={Loading}>
         <About />
+      </Suspense>
+    ),
+  },
+  {
+    path: "select",
+    element: (
+      <Suspense fallback={Loading}>
+        <Select />
       </Suspense>
     ),
   },
