@@ -1,9 +1,9 @@
 //게임 단계 설정
-// import setup_back from "../images/setup_background.png";
+import setup_back from "../images/setup_background.png";
 import { Link } from "react-router-dom";
 const SetUpPage = () => {
   const backStyles = {
-    backgroundImage: 'url("../images/setup_background.png")',
+    backgroundImage: `url(${setup_back})`,
     backgroundSize: "cover",
     height: "100vh",
   };
