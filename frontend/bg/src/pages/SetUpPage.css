@@ -1,0 +1,15 @@
+@import "../styles/fonts.css";
+
+.select-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.font3-sub {
+  font-family: "Radio", snas-serif;
+  color: #6a3d36;
+  text-shadow: 2px 2px 2px white;
+  font-size: 7vw;
+}
