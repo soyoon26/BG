@@ -12,7 +12,7 @@ import java.util.UUID;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import lombok.extern.log4j.Log4js;
+
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -21,6 +21,42 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 @Log4j2 //로깅
 @RequiredArgsConstructor
+
 public class CardFileUtil {
-    
-}
+    @Value("${org.zerock.upload.path}")
+    private String uploadPath;
+
+    @PostConstruct
+    public void init() {
+        File tempFolder = new File(uploadPath);
+
+        if(tempFolder.exists() == false){
+            tempFolder.mkdir();
+        }
+        uploadPath = tempFolder.getAbsolutePath();
+
+        log.info("-------------------------");
+        log.info(uploadPath);
+
+    }
+    public List<String> saveFiles(List<MultipartFile> files)throws
+    RuntimeException{
+        if (files == null || files.size() == 0){
+            return List.of();
+        }
+        List<String> uploadNames = new ArrayList<>();
+        for (MultipartFile multipartFile : files) {
+            String savedName = UUID.randomUUID().toString() + "_" + multipartFile.getOriginalFilename();
+            Path savePath = Paths.get(uploadPath, savedName);
+            try {
+                Files.copy(multipartFile.getInputStream(), savePath);
+                uploadNames.add(savedName);
+            } catch (IOException e) {
+                throw new RuntimeException(e.getMessage());
+            }
+            }
+            //end for
+            return uploadNames;
+        }
+    }
+
