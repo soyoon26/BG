@@ -22,12 +22,14 @@ public class CardController {
     private final CardFileUtil fileUtil;
 
     @PostMapping("/")
-    public Map<String, String> register(CardDTO cardDTO) {
+    public Map<String, String> register(@RequestBody CardDTO cardDTO) {
+        System.out.println("왜안되느뇨");
         log.info("rgister: "+ cardDTO);
         List<MultipartFile> files = cardDTO.getFiles();
+        log.info("Files: {}", files);
         List<String> uploadFileNames = fileUtil.saveFiles(files);
         cardDTO.setUploadFileNames(uploadFileNames);
-        log.info(uploadFileNames);
+        log.info("Upload file names: {}",uploadFileNames);
         return Map.of("RESULT", "SUCCESS");
     }
 }

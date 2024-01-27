@@ -8,9 +8,9 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CardDTO {
-    private Long pno;
+    // private Long pno;
     private String pname;
-    private int price;
+    // private int price;
     private String pdesc;
     private boolean delFlag;
 
