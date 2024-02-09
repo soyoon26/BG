@@ -22,13 +22,17 @@ import lombok.extern.log4j.Log4j2;
 public class CustomSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        log.info("-----------------security config");
+        log.info("-----------------security config-----------");
         http.cors(httpSecurityCorsConfigurer -> {
             httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource());
         });
         http.sessionManagement(sessionConfig -> sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         http.csrf(config -> config.disable());
+
+        http.formLogin(config -> {
+            config.loginPage("/api/member/login");
+        });
         return http.build();
     }
     @Bean
