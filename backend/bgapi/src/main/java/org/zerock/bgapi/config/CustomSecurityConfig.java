@@ -13,6 +13,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.zerock.bgapi.security.handler.APILoginSuccess;
+import org.zerock.bgapi.security.handler.APILoginFail;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -34,6 +35,7 @@ public class CustomSecurityConfig {
         http.formLogin(config -> {
             config.loginPage("/api/member/login");
             config.successHandler(new APILoginSuccess());
+            config.failureHandler(new APILoginFail());
         });
         return http.build();
     }
