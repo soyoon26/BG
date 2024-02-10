@@ -32,6 +32,7 @@ public class CustomSecurityConfig {
 
         http.formLogin(config -> {
             config.loginPage("/api/member/login");
+            config.successHandler(new APILoginSuccess());
         });
         return http.build();
     }
