@@ -4,7 +4,6 @@ import java.io.IOException; // 입출력 관련 예외처리 클래스
 import java.io.PrintWriter; // 출력관련 메서드 제공
 import java.util.Map; //java.util은 표준 라이브러리, map은 키-값 의 컬렉션
 
-import org.glassfish.jaxb.core.annotation.OverrideAnnotationOf;
 import org.springframework.security.core.AuthenticationException; //인증과정 예외 처리, 주로 사용자 인증 실패
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 //사용자 인증 실패시 실행할 작업 정의, 오류메세지 제공이나 로깅 수행
