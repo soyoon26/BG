@@ -14,6 +14,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
+import org.zerock.bgapi.util.JWT;
 
 @Log4j2
 public class APILoginSuccess implements 
@@ -26,9 +27,12 @@ AuthenticationSuccessHandler{
 
         MemberDTO memberDTO = (MemberDTO)authentication.getPrincipal();
         Map<String,Object> claims = memberDTO.getClaims();
+        
+        String accessToken = JWT.generateToken(claims,30); //30분
+        String refreshToken= JWT.generateToken(claims, 60*24); //24시간
 
-        claims.put("accessToken","");
-        claims.put("refreshToken","");
+        claims.put("accessToken", accessToken);
+        claims.put("refreshToken", refreshToken);
         Gson gson = new Gson();
 
         String jsonStr = gson.toJson(claims);

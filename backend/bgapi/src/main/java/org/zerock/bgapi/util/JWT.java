@@ -11,7 +11,7 @@ import javax.crypto.SecretKey;
 
 @Log4j2
 public class JWT {
-    private static String key = "98949894989498949894";
+    private static String key = "98949894989498949894989498949894";
     public static String generateToken(Map<String, Object> valueMap, int min) {
         //토큰 생성, 사용자 정보 담고있을 valueMap과 만료시간은 분으로 정하기
         SecretKey key = null;
