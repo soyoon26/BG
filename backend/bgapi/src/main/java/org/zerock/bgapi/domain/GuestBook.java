@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "tbl_comment")
+@Table(name = "guestbook")
 @Getter
 @ToString
 @Builder
@@ -15,9 +15,13 @@ import lombok.*;
 public class GuestBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //고유한 PK, 자동 생성 
-    private Long tno;
+    private Long no;
     private String content;
     private String writer;
-    private boolean complete;
     private LocalDate dueDate;
+
+    public void changeContent(String content){
+        this.content = content;
+    }
+
 }
