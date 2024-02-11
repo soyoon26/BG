@@ -15,7 +15,7 @@ public class CommentRepositoryTests {
     @Test
     public void test1() {
 
-        log.info("-------------------냠");
+        log.info("-------------------");
         log.info(commentRepository);
     }
 }

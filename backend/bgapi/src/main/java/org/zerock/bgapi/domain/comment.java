@@ -14,7 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //고유한 PK
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //고유한 PK, 자동 생성 
     private Long tno;
     private String title;
     private String writer;
