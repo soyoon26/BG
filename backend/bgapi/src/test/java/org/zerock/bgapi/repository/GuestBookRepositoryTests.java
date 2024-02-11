@@ -1,12 +1,15 @@
 package org.zerock.bgapi.repository;
 
-import static org.mockito.ArgumentMatchers.isNull;
 
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.zerock.bgapi.domain.GuestBook;
 
 import lombok.extern.log4j.Log4j2;
@@ -53,5 +56,13 @@ public class GuestBookRepositoryTests {
     public void testDelete(){
         Long no = 1L;
         guestbookRepository.deleteById(no);
+    }
+    @Test
+    public void testPaging(){
+        Pageable pageable = 
+        PageRequest.of(0,10,Sort.by("no").descending());
+        Page<GuestBook> result = guestbookRepository.findAll(pageable);
+        log.info(result.getTotalElements());
+        result.getContent().stream().forEach(guestbook -> log.info(guestbook));
     } 
 }
