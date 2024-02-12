@@ -1,5 +1,6 @@
 package org.zerock.bgapi.service;
 
+import org.glassfish.jaxb.core.annotation.OverrideAnnotationOf;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service; //빈 등록하고 주입가능
 import org.springframework.transaction.annotation.Transactional;
@@ -9,6 +10,7 @@ import org.zerock.bgapi.repository.GuestBookRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import java.util.Optional;
 
 @Service //해당 클래스가 비지니스 로직을 처리하는 클래스
 @Transactional //메서드가 하나의 트랜잭션 내 실행가능
@@ -25,5 +27,29 @@ public class GuestBookServiceImp implements GuestBookService {
         //DTO객체를 Guestbook 객체로 전환(클래스의 인스턴스로 매핑)
         GuestBook savedGuestBook = guestbookRepository.save(guestbook);
         return savedGuestBook.getNo();
-    }    
+    }
+
+    @Override
+    public GuestBookDTO get(Long no) {
+        Optional<GuestBook> result = guestbookRepository.findById(no);
+        GuestBook guestbook = result.orElseThrow();
+        GuestBookDTO dto = modelMapper.map(guestbook, GuestBookDTO.class);
+        return dto;
+    }
+
+    @Override
+    public void modify(GuestBookDTO guestbookDTO) {
+        Optional<GuestBook> result = guestbookRepository.findById(guestbookDTO.getNo());
+
+        GuestBook guestbook = result.orElseThrow();
+
+        guestbook.changeContent(guestbookDTO.getContent());
+        
+        guestbookRepository.save(guestbook);
+    }
+
+    @Override
+    public void remove(Long no) {
+        guestbookRepository.deleteById(no);
+    }
 }

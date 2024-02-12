@@ -27,4 +27,11 @@ public class GuestBookServiceTests {
 
         log.info("NO: " + no);
     }
+
+    @Test
+    public void testGet() {
+        Long no = 5L;
+        GuestBookDTO guestbookDTO = guestbookService.get(no);
+        log.info(guestbookDTO); 
+    }
 }
