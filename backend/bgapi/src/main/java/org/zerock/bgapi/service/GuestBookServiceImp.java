@@ -1,16 +1,24 @@
 package org.zerock.bgapi.service;
 
-import org.glassfish.jaxb.core.annotation.OverrideAnnotationOf;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;//스트림(반복가능)에서 수집한 데이터 연산 가능
+
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service; //빈 등록하고 주입가능
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.bgapi.domain.GuestBook;
+import org.zerock.bgapi.dto.PageRequestDTO;
+import org.zerock.bgapi.dto.PageResponseDTO;
 import org.zerock.bgapi.dto.GuestBookDTO;
 import org.zerock.bgapi.repository.GuestBookRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import java.util.Optional;
 
 @Service //해당 클래스가 비지니스 로직을 처리하는 클래스
 @Transactional //메서드가 하나의 트랜잭션 내 실행가능
@@ -51,5 +59,28 @@ public class GuestBookServiceImp implements GuestBookService {
     @Override
     public void remove(Long no) {
         guestbookRepository.deleteById(no);
+    }
+    @Override
+    public PageResponseDTO<GuestBookDTO> list(PageRequestDTO pageRequestDTO) {
+        Pageable pageable = 
+        PageRequest.of(
+            pageRequestDTO.getPage() - 1, //1페이지가 0
+            pageRequestDTO.getSize(),
+            Sort.by("no").descending());
+        Page<GuestBook> result = guestbookRepository.findAll(pageable);
+
+        List<GuestBookDTO> dtoList = result.getContent().stream()
+            .map(guestbook -> modelMapper.map(guestbook, GuestBookDTO.class))
+            .collect(Collectors.toList());
+
+        long totalCount = result.getTotalElements();
+
+        PageResponseDTO<GuestBookDTO> responseDTO = PageResponseDTO.<GuestBookDTO>withAll()
+            .dtoList(dtoList)
+            .pageRequestDTO(pageRequestDTO)
+            .totalCount(totalCount)
+            .build();
+
+        return responseDTO;
     }
 }
