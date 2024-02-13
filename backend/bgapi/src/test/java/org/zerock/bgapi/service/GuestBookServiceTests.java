@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.zerock.bgapi.dto.GuestBookDTO;
+import org.zerock.bgapi.dto.PageRequestDTO;
+import org.zerock.bgapi.dto.PageResponseDTO;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -33,5 +35,17 @@ public class GuestBookServiceTests {
         Long no = 5L;
         GuestBookDTO guestbookDTO = guestbookService.get(no);
         log.info(guestbookDTO); 
+    }
+
+    @Test
+    public void testList() {
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+            .page(2)
+            .size(10)
+            .build();
+
+        PageResponseDTO<GuestBookDTO> response = guestbookService.list(pageRequestDTO);
+
+        log.info(response);
     }
 }
