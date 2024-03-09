@@ -1,8 +1,8 @@
 //게임 단계 설정
 import setup_back from "../images/setup_background.png";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import SelectMenu from "../components/menus/SelectMenu";
-
+import "./SetUpPage.css";
 const SetUpPage = () => {
   const backStyles = {
     backgroundImage: `url(${setup_back})`,
@@ -12,17 +12,22 @@ const SetUpPage = () => {
   return (
     <div style={backStyles}>
       <div className=" flex justify-end p-5 font-large">
-        <Link to={"../about"}>
-          <button className="font3 bg-red-400 text-white p-3 mt-1 rounded-lg">
-            About
-          </button>
-          /
-        </Link>
         <SelectMenu className="p-5"></SelectMenu>
       </div>
-      <div className="flex">
-        <Link to="../about">About 임시</Link>
-        <div className="select-txt font3-sub mt-1">단계를 선택해주세요!</div>
+      <div className="select-txt font3-sub mt-1">단계를 선택해주세요!</div>
+      <div className="step">
+        <div className="step-container">
+          <div className="select-txt font3-step mt-1">1단계</div>
+          <div className="description">"처음이라면 선택 ! 가장 쉬워요."</div>
+        </div>
+        <div className="step-container">
+          <div className="select-txt font3-step mt-1">2단계</div>
+          <div className="description">"1단계를 잘 통과하였다면 2단계로~"</div>
+        </div>
+        <div className="step-container">
+          <div className="select-txt font3-step mt-1">3단계</div>
+          <div className="description">"게임에 자신이 있다면 도전 !"</div>
+        </div>
       </div>
     </div>
   );

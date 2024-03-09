@@ -7,9 +7,27 @@
   align-items: center;
 }
 
+.font3-step {
+  font-family: "Radio", snas-serif;
+  color: #71353e;
+  text-shadow: 2px 2px 2px rgb(245, 121, 121);
+  font-size: 5vw;
+}
+
 .font3-sub {
   font-family: "Radio", snas-serif;
   color: #6a3d36;
   text-shadow: 2px 2px 2px white;
-  font-size: 7vw;
+  font-size: 5vw;
+}
+
+.step {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 60px;
+}
+
+.description {
+  font-family: "Radio", snas-serif;
+  font-size: 2vw;
 }

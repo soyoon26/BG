@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class CardControllerAdvice {
+public class BasicControllerAdvice {
     @ExceptionHandler(NoSuchElementException.class)
     protected ResponseEntity<?> notExist(NoSuchElementException e) {
         String msg = e.getMessage();
