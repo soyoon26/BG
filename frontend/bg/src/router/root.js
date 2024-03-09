@@ -7,8 +7,8 @@ const Main = lazy(() => import("../pages/MainPage"));
 const About = lazy(() => import("../pages/AboutPage"));
 const Select = lazy(() => import("../pages/SelectPage"));
 const SetUp = lazy(() => import("../pages/SetUpPage"));
-const Card = lazy(() => import("../pages/GameCard"));
-const Number = lazy(() => import("../pages/GameNumber"));
+const GameCard = lazy(() => import("../pages/GameCard"));
+const GameNumber = lazy(() => import("../pages/GameNumber"));
 
 const root = createBrowserRouter([
   {
@@ -44,18 +44,18 @@ const root = createBrowserRouter([
     ),
   },
   {
-    path: "game/card",
+    path: "/game/card",
     element: (
       <Suspense fallback={Loading}>
-        <Card />
+        <GameCard />
       </Suspense>
     ),
   },
   {
-    path: "game/number",
+    path: "/game/number",
     element: (
       <Suspense fallback={Loading}>
-        <Number />
+        <GameNumber />
       </Suspense>
     ),
   },

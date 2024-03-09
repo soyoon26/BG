@@ -10,9 +10,6 @@ const SelectPage = () => {
     backgroundSize: "cover",
     height: "100vh",
   };
-  // const handleImageClick = () => {
-  //   window.location.href = "../game";
-  // };
   return (
     <div style={backStyles}>
       <div className=" flex justify-end p-5 font-large">

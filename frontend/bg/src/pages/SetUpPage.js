@@ -14,7 +14,7 @@ const SetUpPage = () => {
   const searchParams = new URLSearchParams(location.search); //쿼리 문자열 추출
   const gameType = searchParams.get("type"); //gameType 가져오기
 
-  const nextPath = gameType === "card" ? "/card" : "/number";
+  const nextPath = gameType === "card" ? "/game/card" : "/game/number";
 
   return (
     <div style={backStyles}>
