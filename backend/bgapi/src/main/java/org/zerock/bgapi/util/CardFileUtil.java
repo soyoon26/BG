@@ -77,4 +77,7 @@ public class CardFileUtil {
         }
         return ResponseEntity.ok().headers(headers).body(resource);
         }
+    public void setUploadPath(String uploadPath) {
+        this.uploadPath = uploadPath;
+    }
     }

@@ -29,7 +29,7 @@ public class CardController {
 
     @PostMapping("/")
     public Map<String, String> register(CardDTO cardDTO) {
-        System.out.println("왜안되느뇨");
+
         log.info("rgister: "+ cardDTO);
         List<MultipartFile> files = cardDTO.getFiles();
         log.info("Files: {}", files);
