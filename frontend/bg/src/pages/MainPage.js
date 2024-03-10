@@ -1,4 +1,4 @@
-import Logo from "../components/menus/Logo";
+import Logo from "../components/Button/Logo";
 import { Link } from "react-router-dom";
 const MainPage = () => {
   return (

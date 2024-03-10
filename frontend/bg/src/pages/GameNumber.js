@@ -12,7 +12,7 @@ const GameNumber = () => {
     // 파일 데이터 가져오기
     const fetchData = async () => {
       try {
-        const imageUrl = await getOne("fancy.jpg"); // 파일 이름을 지정해야 함
+        const imageUrl = await getOne("1.png"); // 파일 이름을 지정해야 함
         console.log(imageUrl); // 여기에 추가
         setFileData(imageUrl);
       } catch (error) {

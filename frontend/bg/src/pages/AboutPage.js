@@ -1,4 +1,4 @@
-import SelectMenu from "../components/menus/SelectMenu";
+import SelectMenu from "../components/Button/SelectMenu";
 
 const AboutPage = () => {
   return (

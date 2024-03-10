@@ -1,4 +1,5 @@
 import { Suspense, lazy } from "react";
+import HowToPage from "../pages/HowToPage";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -9,6 +10,7 @@ const Select = lazy(() => import("../pages/SelectPage"));
 const SetUp = lazy(() => import("../pages/SetUpPage"));
 const GameCard = lazy(() => import("../pages/GameCard"));
 const GameNumber = lazy(() => import("../pages/GameNumber"));
+const HowTo = lazy(() => import("../pages/HowToPage"));
 
 const root = createBrowserRouter([
   {
@@ -36,7 +38,7 @@ const root = createBrowserRouter([
     ),
   },
   {
-    path: "game",
+    path: "game/set",
     element: (
       <Suspense fallback={Loading}>
         <SetUp />
@@ -56,6 +58,14 @@ const root = createBrowserRouter([
     element: (
       <Suspense fallback={Loading}>
         <GameNumber />
+      </Suspense>
+    ),
+  },
+  {
+    path: "game/howto",
+    element: (
+      <Suspense fallback={Loading}>
+        <HowTo />
       </Suspense>
     ),
   },

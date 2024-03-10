@@ -23,24 +23,22 @@ const SelectPage = () => {
       <div className="select-txt font3-sub mt-1">게임을 선택해주세요!</div>
       <div className="image-container">
         <div className="game-option text-4xl">
-          <Link to={{ pathname: "../game", search: "?type=card" }}>
+          <Link to={{ pathname: "../game/set", search: "?type=card" }}>
             <img
               src={card}
               alt="카드 짝 맞추기"
               className="image"
-              // onClick={handleImageClick}
               style={{ cursor: "pointer" }}
             />
             <div className="font4">카드 짝 맞추기</div>
           </Link>
         </div>
         <div className="game-option">
-          <Link to={{ pathname: "../game", search: "?type=number" }}>
+          <Link to={{ pathname: "../game/set", search: "?type=number" }}>
             <img
               src={phone}
               alt="번호외우기"
               className="image"
-              //onClick={handleImageClick}
               style={{ cursor: "pointer" }}
             />
           </Link>
