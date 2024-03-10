@@ -7,7 +7,40 @@ const GameNumber = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const step = searchParams.get("step");
-  const [fileData, setFileData] = useState(null);
+  const [fileData, setFileData] = useState(null); //링크
+  const [usedNameCards, setUesdNameCards] = useState([]);
+  const [usedNumberCards, setUsedNumberCards] = useState([]);
+
+  const nameCards = [
+    "가방",
+    "강아지",
+    "기타",
+    "꽃",
+    "연필",
+    "우산",
+    "주전자",
+    "지구",
+    "티켓",
+    "편지",
+    "폰",
+    "풍선",
+    "나무",
+    "나비",
+    "노트북",
+    "비누",
+    "사과",
+    "사탕",
+    "시계",
+    "책",
+    "카메라",
+    "커피",
+    "케익",
+    "쿠키",
+    "쿼카",
+    "크레용",
+    "토끼",
+  ];
+  const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
 
   useEffect(() => {
     // 파일 데이터 가져오기
