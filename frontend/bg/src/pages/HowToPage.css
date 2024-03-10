@@ -1,5 +1,21 @@
 @import "../styles/fonts.css";
 
+.howto-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .start-container {
   justify-content: center;
+}
+
+.card-howto,
+.number-howto {
+  margin-top: 10vh;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-family: "Radio", snas-serif;
+  font-size: 3vw;
+  line-height: 1.5;
 }
