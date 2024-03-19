@@ -7,7 +7,6 @@ const GameNumber = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const step = parseInt(searchParams.get("step")); //정수로 바꿔줌
-  const [fileData, setFileData] = useState(null); //링크
   const [pictureCard, setPictureCard] = useState(null);
   const [numberCard, setNumberCard] = useState(null);
   const [usedPictureCards, setUsedPictureCards] = useState([]); //사용된 그림 카드 배열
@@ -90,12 +89,17 @@ const GameNumber = () => {
         console.error("Error fetching number card data:", error);
       }
     };
-    if (cnt.current < 3) {
+
+    let cardCnt = 4;
+    if (step === 2) cardCnt = 6;
+    else if (step === 3) cardCnt = 9;
+
+    if (cnt.current < cardCnt) {
       const intervalId = setInterval(() => {
         fetchPictureCard();
         fetchNumberCard();
         cnt.current++;
-        console.log("씨이발", cnt.current);
+        console.log(cnt.current);
       }, 3000);
       return () => clearInterval(intervalId);
     }
