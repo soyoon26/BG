@@ -8,10 +8,10 @@ const GameNumber = () => {
   const searchParams = new URLSearchParams(location.search);
   const step = searchParams.get("step");
   const [fileData, setFileData] = useState(null); //링크
-  const [usedNameCards, setUesdNameCards] = useState([]);
-  const [usedNumberCards, setUsedNumberCards] = useState([]);
+  const [usedPictureCards, setUesdPictureCards] = useState([]); //사용된 그림 카드 배열
+  const [usedNumberCards, setUsedNumberCards] = useState([]); //사용된 숫자 카드 배열
 
-  const nameCards = [
+  const pictureCards = [
     "가방",
     "강아지",
     "기타",
@@ -39,26 +39,27 @@ const GameNumber = () => {
     "쿼카",
     "크레용",
     "토끼",
-  ];
-  const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
+  ]; //사용하지 않은 그림카드 배열
+  const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString()); //사용하지 않은 숫자카드 배열
 
   useEffect(() => {
     // 파일 데이터 가져오기
     const fetchData = async () => {
       try {
         const imageUrl = await getOne("1.png"); // 파일 이름을 지정해야 함
-        console.log(imageUrl); // 여기에 추가
+        console.log(imageUrl, "카드 가져오기 성공"); // 여기에 추가
         setFileData(imageUrl);
       } catch (error) {
         console.error("Error fetching file data:", error);
       }
     };
-    fetchData();
+    fetchData(); // 컴포넌트가 처음 렌더링될 때 파일 데이터를 가져오도록 함
   }, []);
 
   return (
     <div>
       <p className="step-info">{step}단계 게임</p>
+
       <div className="card-container">
         {fileData && (
           <img className="match-card" src={fileData} alt="그림카드" />

@@ -2,8 +2,11 @@
 import { Link } from "react-router-dom";
 import "../../App.css";
 import "./StartButton.css";
-const StartButton = ({ gameType }) => {
-  const nextPath = gameType === "card" ? "/game/card" : "/game/number";
+const StartButton = ({ gameType, step }) => {
+  const nextPath =
+    gameType === "card"
+      ? `/game/card?step=${step}`
+      : `/game/number?step=${step}`;
 
   return (
     <div className=" flex justify-center p-5 font-large">

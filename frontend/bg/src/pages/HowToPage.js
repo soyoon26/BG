@@ -37,7 +37,7 @@ const HowToPage = () => {
         </div>
       )}
       <div className="start-container">
-        <StartButton gameType={gameType} />
+        <StartButton gameType={gameType} step={step} />
       </div>
     </div>
   );
