@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { getOne } from "../api/cardApi";
 import "./GameCard.css";
@@ -12,6 +12,7 @@ const GameNumber = () => {
   const [numberCard, setNumberCard] = useState(null);
   const [usedPictureCards, setUsedPictureCards] = useState([]); //사용된 그림 카드 배열
   const [usedNumberCards, setUsedNumberCards] = useState([]); //사용된 숫자 카드 배열
+  const cnt = useRef(0);
 
   const pictureCards = [
     "가방",
@@ -61,7 +62,7 @@ const GameNumber = () => {
         ]);
         //사용한 그림카드에 넣기, 불변성을 위해
         const imageUrl = await getOne(`${randomPictureCard}.png`);
-        console.log(imageUrl, "그림카드 가져오기 성공");
+        console.log(imageUrl, "그림카드");
         setPictureCard(imageUrl);
       } catch (error) {
         console.error("Error fetching picture card data:", error);
@@ -83,19 +84,21 @@ const GameNumber = () => {
         ]);
 
         const imageUrl = await getOne(`${randomNumberCard}.png`);
-        console.log(imageUrl, "숫자카드 가져오기 성공");
+        console.log(imageUrl, "숫자카드");
         setNumberCard(imageUrl);
       } catch (error) {
         console.error("Error fetching number card data:", error);
       }
     };
-
-    const intervalId = setInterval(() => {
-      fetchPictureCard();
-      fetchNumberCard();
-    }, 3000);
-
-    return () => clearInterval(intervalId);
+    if (cnt.current < 3) {
+      const intervalId = setInterval(() => {
+        fetchPictureCard();
+        fetchNumberCard();
+        cnt.current++;
+        console.log("씨이발", cnt.current);
+      }, 3000);
+      return () => clearInterval(intervalId);
+    }
   }, [usedPictureCards, usedNumberCards]);
 
   return (
