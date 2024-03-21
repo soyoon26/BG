@@ -12,7 +12,7 @@ const GuessCardPage = () => {
   const pickCnt = step === 1 ? 4 : step === 2 ? 7 : 9; //스텝에 따른 문제수
   const pickCards = [usedPictureCards, usedNumberCards];
   const [choice, setChoice] = useState(null);
-  const [score, setScore] = useState([]);
+  const [score, setScore] = useState(0); //점수
   const order = useRef(0);
   const pickIndex = Math.floor(Math.random() * pickCards.length); //랜덤으로 문제카드 구하기
   const otherIndex = pickIndex === 0 ? 1 : 0; //짝지 카드
@@ -54,15 +54,31 @@ const GuessCardPage = () => {
   const otherChoice = pickIndex === 0 ? choiceNumberCards : choicePictureCards;
   const [choiceUrls, setChoiceUrls] = useState([]);
 
-  useEffect(() => {
-    const fetchCard = async () => {
-      const imageUrl = await getOne(
-        `${pickCards[pickIndex][order.current]}.png` //문제카드
-      );
-      setCard(imageUrl);
-    };
-    fetchCard();
-  }, [usedNumberCards, usedPictureCards]);
+  //   useEffect(() => {
+  const fetchCard = async () => {
+    const imageUrl = await getOne(
+      `${pickCards[pickIndex][order.current]}.png` //문제카드
+    );
+    setCard(imageUrl);
+  };
+  const handleCardClick = (clickedCard) => {
+    if (clickedCard === answer) {
+      console.log(answer);
+      alert("정답입니다!");
+      setScore((prevScore) => prevScore + 1); // 정답 카운트 상태 업데이트
+      order.current++; // 다음 문제를 위해 order 업데이트
+      setCard(null); // 카드 초기화
+      setAnswer(null); // 정답 초기화
+      // 다음 문제 카드 가져오기
+      fetchCard();
+    } else {
+      console.log(answer);
+      alert("틀렸습니다! 다시 골라보세요");
+    }
+  };
+
+  // fetchCard();
+  //   }, [usedNumberCards, usedPictureCards]);
 
   useEffect(() => {
     const fetchAnswer = async () => {
@@ -72,6 +88,9 @@ const GuessCardPage = () => {
       setAnswer(imageUrl);
     };
     fetchAnswer();
+  }, [usedNumberCards, usedPictureCards]);
+  useEffect(() => {
+    fetchCard();
   }, [usedNumberCards, usedPictureCards]);
 
   const shuffle = (array) => {
@@ -121,6 +140,7 @@ const GuessCardPage = () => {
                 className="choice-cards"
                 src={card}
                 alt="선택지 카드"
+                onClick={() => handleCardClick(card)}
               />
             ))}
           </div>
@@ -131,6 +151,7 @@ const GuessCardPage = () => {
                 className="choice-cards"
                 src={card}
                 alt="선택지 카드"
+                onClick={() => handleCardClick(card)}
               />
             ))}
           </div>
