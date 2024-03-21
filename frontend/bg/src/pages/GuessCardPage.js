@@ -5,6 +5,7 @@ import { getOne } from "../api/cardApi";
 import StopMenu from "../components/Button/StopMenu";
 import "./GuessCardPage.css";
 const GuessCardPage = () => {
+  const [answer, setAnswer] = useState([]);
   const location = useLocation();
   const { step, usedNumberCards, usedPictureCards } = location.state;
   const [card, setCard] = useState(null);
@@ -15,7 +16,7 @@ const GuessCardPage = () => {
   const order = useRef(0);
   const pickIndex = Math.floor(Math.random() * pickCards.length); //랜덤으로 문제카드 구하기
   const otherIndex = pickIndex === 0 ? 1 : 0; //짝지 카드
-  const answer = pickCards[otherIndex][order.current]; //정답카드
+
   const pictureCards = [
     "가방",
     "강아지",
@@ -63,6 +64,16 @@ const GuessCardPage = () => {
     fetchCard();
   }, [usedNumberCards, usedPictureCards]);
 
+  useEffect(() => {
+    const fetchAnswer = async () => {
+      const imageUrl = await getOne(
+        `${pickCards[otherIndex][order.current]}.png` //정답카드
+      );
+      setAnswer(imageUrl);
+    };
+    fetchAnswer();
+  }, [usedNumberCards, usedPictureCards]);
+
   const shuffle = (array) => {
     const shuffledArray = [...array];
     for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -74,23 +85,24 @@ const GuessCardPage = () => {
     }
     return shuffledArray;
   }; //Fisher-Yates 알고리즘
-  const fiveCards = shuffle([...otherChoice]);
-  const shuffledCards = shuffle([answer, ...fiveCards.slice(0, 6)]);
+  const fiveCards = shuffle([...otherChoice].slice(0, 6));
 
   useEffect(() => {
     const fetchUrls = async () => {
-      const urls = [];
-      for (const sc of shuffledCards) {
-        const url = await getOne(`${sc}.png`);
-        urls.push(url);
+      const fiveUrls = [];
+      for (const card of fiveCards) {
+        const url = await getOne(`${card}.png`);
+        fiveUrls.push(url);
       }
-      console.log(urls);
-      return urls;
+      console.log(fiveUrls);
+      return fiveUrls;
     };
-    fetchUrls().then((urls) => {
-      setChoiceUrls(urls);
+    fetchUrls().then((fiveUrls) => {
+      setChoiceUrls(fiveUrls);
     });
   }, []);
+  console.log(choiceUrls);
+  const shuffledCards = shuffle([answer, ...choiceUrls]);
 
   return (
     <div>
@@ -103,36 +115,25 @@ const GuessCardPage = () => {
         </div>
         <div>
           <div className="choices">
-            {choiceUrls.slice(0, 3).map((card, index) => (
+            {shuffledCards.slice(0, 3).map((card, index) => (
               <img
                 key={index}
                 className="choice-cards"
                 src={card}
-                alt="그림카드"
+                alt="선택지 카드"
               />
             ))}
           </div>
           <div className="choices">
-            {choiceUrls.slice(3, 6).map((card, index) => (
+            {shuffledCards.slice(3, 6).map((card, index) => (
               <img
                 key={index}
                 className="choice-cards"
                 src={card}
-                alt="그림카드"
+                alt="선택지 카드"
               />
             ))}
           </div>
-
-          {/* <div className="choices">
-            <img className="choice-cards" src={answer} alt="그림카드" />
-            <img className="choice-cards" src={card} alt="그림카드" />
-            <img className="choice-cards" src={card} alt="그림카드" />
-          </div>
-          <div className="choices">
-            <img className="choice-cards" src={card} alt="그림카드" />
-            <img className="choice-cards" src={card} alt="그림카드" />
-            <img className="choice-cards" src={card} alt="그림카드" />
-          </div> */}
         </div>
       </div>
     </div>
