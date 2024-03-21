@@ -9,9 +9,14 @@ const GuessCardPage = () => {
   const { step, usedNumberCards, usedPictureCards } = location.state;
   const [card, setCard] = useState(null);
   const [answer, setAnswer] = useState(null);
+
+  const pickCnt = step === 1 ? 4 : step === 2 ? 7 : 9; //스텝에 따른 문제수
+  const pickCards = [usedPictureCards, usedNumberCards];
   const [choice, setChoice] = useState(null);
   const [score, setScore] = useState([]);
   const order = useRef(0);
+  const pickIndex = Math.floor(Math.random() * pickCards.length); //랜덤으로 문제카드 구하기
+  const otherIndex = pickIndex === 0 ? 1 : 0; //짝지 카드
   const pictureCards = [
     "가방",
     "강아지",
@@ -40,24 +45,17 @@ const GuessCardPage = () => {
     "쿼카",
     "크레용",
     "토끼",
-  ]; //사용하지 않은 그림카드 배열
-  const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
-  const pickCards = [usedPictureCards, usedNumberCards];
-  const pickIndex = Math.floor(Math.random() * pickCards.length);
-  const otherIndex = pickIndex === 0 ? 1 : 0;
-  const choicePictureCards = pictureCards.filter(
-    (card) => !pictureCards.includes(card)
-  );
-  const choiceNumberCards = numberCards.filter(
-    (card) => !numberCards.includes(card)
-  );
-  console.log(card, numberCards, "zz");
+  ].filter((card) => card != pickCards[otherIndex][order.current]); //정답을 뺀 그림카드 전체 배열
+  const numberCards = Array.from({ length: 10 }, (_, i) =>
+    (i + 1).toString()
+  ).filter((card) => card != pickCards[otherIndex][order.current]); //정답을 뺀 숫자카드 전체 배열
+  const choicePictureCards = pictureCards.filter((card) => card != answer);
+  const choiceNumberCards = numberCards.filter((card) => card != answer); //선택지에 갈 카드들, 정답 제외
   const otherChoice = pickIndex === 0 ? choiceNumberCards : choicePictureCards;
-  console.log(choiceNumberCards, "??");
   useEffect(() => {
     const fetchCard = async () => {
       const imageUrl = await getOne(
-        `${pickCards[pickIndex][order.current]}.png`
+        `${pickCards[pickIndex][order.current]}.png` //문제카드
       );
       setCard(imageUrl);
     };
@@ -65,13 +63,17 @@ const GuessCardPage = () => {
   }, [usedNumberCards, usedPictureCards]);
 
   useEffect(() => {
-    const fetchCard = async () => {
+    const fetchAnswer = async () => {
       const imageUrl = await getOne(
-        `${pickCards[otherIndex][order.current]}.png`
+        `${pickCards[otherIndex][order.current]}.png` //정답카드
       );
       setAnswer(imageUrl);
+      console.log(
+        `${pickCards[otherIndex][order.current]}.png`,
+        "찐정답이에용"
+      );
     };
-    fetchCard();
+    fetchAnswer();
   }, [usedNumberCards, usedPictureCards]);
 
   const shuffle = (array) => {
@@ -85,10 +87,9 @@ const GuessCardPage = () => {
     }
     return shuffledArray;
   }; //Fisher-Yates 알고리즘
-  console.log("쌩");
-  console.log(otherChoice);
+  console.log(otherChoice, "선택지에 갈거임");
   const shuffledCards = shuffle([answer, ...otherChoice]);
-
+  console.log(shuffledCards);
   return (
     <div>
       <div className="step-info">
