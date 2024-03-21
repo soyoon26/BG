@@ -117,9 +117,9 @@ const GameNumber = () => {
 
   return (
     <div>
-      <p className="step-info">
+      <div className="step-info">
         {step}단계 게임 <StopMenu />
-      </p>
+      </div>
       <div className="card-container">
         {pictureCard && (
           <img className="match-card" src={pictureCard} alt="그림카드" />
