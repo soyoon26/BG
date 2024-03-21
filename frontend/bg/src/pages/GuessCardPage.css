@@ -1,0 +1,35 @@
+.match-card {
+  width: 23vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-left: 10%;
+}
+
+.card-container {
+  display: flex;
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: space-evenly;
+  height: 80vh; /* 화면 전체 높이 */
+}
+
+.choices {
+  display: flex;
+  align-items: center;
+  margin-right: 20%;
+}
+
+.choice-cards {
+  width: 12vw;
+  padding: 0.5vw;
+}
+
+.step-info {
+  font-family: "Radio", snas-serif;
+  font-size: 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-left: 5%;
+  margin-right: 5%;
+}
