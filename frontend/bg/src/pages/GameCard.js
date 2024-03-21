@@ -106,12 +106,16 @@ const GameNumber = () => {
       return () => clearInterval(intervalId);
     } else {
       setTimeout(() => {
+        const currentUsedNumberCards = [...usedNumberCards]; // 배열을 복사하여 캡처
+        const currentUsedPictureCards = [...usedPictureCards];
         navigate("/game/guess", {
-          state: { step: step },
-          usedNumberCards: usedNumberCards,
-          usedPictureCards: usedPictureCards,
+          state: {
+            step: step,
+            usedNumberCards: currentUsedNumberCards,
+            usedPictureCards: currentUsedPictureCards,
+          },
         });
-      }, 3000); // 3초 후에 이동
+      }, 3000);
     }
   }, [usedPictureCards, usedNumberCards]);
 

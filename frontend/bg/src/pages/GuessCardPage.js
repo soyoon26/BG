@@ -6,8 +6,14 @@ import StopMenu from "../components/Button/StopMenu";
 import "./GuessCardPage.css";
 const GuessCardPage = () => {
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const step = parseInt(searchParams.get("step"));
+  const { step, usedNumberCards, usedPictureCards } = location.state;
+
+  return (
+    <div>
+      {step}
+      {usedNumberCards}
+    </div>
+  );
 };
 
 export default GuessCardPage;
