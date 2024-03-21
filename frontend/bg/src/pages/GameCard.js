@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { getOne } from "../api/cardApi";
+import StopMenu from "../components/Button/StopMenu";
 import "./GameCard.css";
 
 const GameNumber = () => {
@@ -107,8 +108,9 @@ const GameNumber = () => {
 
   return (
     <div>
-      <p className="step-info">{step}단계 게임</p>
-
+      <p className="step-info">
+        {step}단계 게임 <StopMenu />
+      </p>
       <div className="card-container">
         {pictureCard && (
           <img className="match-card" src={pictureCard} alt="그림카드" />
