@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getOne } from "../api/cardApi";
 import StopMenu from "../components/Button/StopMenu";
 import "./GameCard.css";
 
 const GameNumber = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const step = parseInt(searchParams.get("step")); //정수로 바꿔줌
@@ -103,6 +104,14 @@ const GameNumber = () => {
         console.log(cnt.current);
       }, 3000);
       return () => clearInterval(intervalId);
+    } else {
+      setTimeout(() => {
+        navigate("/game/guess", {
+          state: { step: step },
+          usedNumberCards: usedNumberCards,
+          usedPictureCards: usedPictureCards,
+        });
+      }, 3000); // 3초 후에 이동
     }
   }, [usedPictureCards, usedNumberCards]);
 

@@ -11,6 +11,7 @@ const SetUp = lazy(() => import("../pages/SetUpPage"));
 const GameCard = lazy(() => import("../pages/GameCard"));
 const GameNumber = lazy(() => import("../pages/GameNumber"));
 const HowTo = lazy(() => import("../pages/HowToPage"));
+const GuessCard = lazy(() => import("../pages/GuessCardPage"));
 
 const root = createBrowserRouter([
   {
@@ -66,6 +67,14 @@ const root = createBrowserRouter([
     element: (
       <Suspense fallback={Loading}>
         <HowTo />
+      </Suspense>
+    ),
+  },
+  {
+    path: "game/guess",
+    element: (
+      <Suspense fallback={Loading}>
+        <GuessCard />
       </Suspense>
     ),
   },
