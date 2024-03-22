@@ -12,6 +12,7 @@ const GameCard = lazy(() => import("../pages/GameCard"));
 const GameNumber = lazy(() => import("../pages/GameNumber"));
 const HowTo = lazy(() => import("../pages/HowToPage"));
 const GuessCard = lazy(() => import("../pages/GuessCardPage"));
+const Score = lazy(() => import("../pages/ScorePage"));
 
 const root = createBrowserRouter([
   {
@@ -75,6 +76,14 @@ const root = createBrowserRouter([
     element: (
       <Suspense fallback={Loading}>
         <GuessCard />
+      </Suspense>
+    ),
+  },
+  {
+    path: "game/score",
+    element: (
+      <Suspense fallback={Loading}>
+        <Score />
       </Suspense>
     ),
   },

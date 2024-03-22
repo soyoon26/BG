@@ -94,7 +94,7 @@ const GameNumber = () => {
 
     let cardCnt = 4;
     if (step === 2) cardCnt = 6;
-    else if (step === 3) cardCnt = 9;
+    else if (step === 3) cardCnt = 9; //문제수
 
     if (cnt.current < cardCnt) {
       const intervalId = setInterval(() => {
