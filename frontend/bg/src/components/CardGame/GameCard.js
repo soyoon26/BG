@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getOne } from "../api/cardApi";
-import StopMenu from "../components/Button/StopMenu";
+import { getOne } from "../../api/cardApi";
+import StopMenu from "../Button/StopMenu";
 import "./GameCard.css";
 
-const GameNumber = () => {
+const GameCard = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -136,4 +136,4 @@ const GameNumber = () => {
   );
 };
 
-export default GameNumber;
+export default GameCard;

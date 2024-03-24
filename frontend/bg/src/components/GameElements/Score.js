@@ -1,4 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-const ScorePage = () => {};
+const Score = () => {};
 
-export default ScorePage;
+export default Score;

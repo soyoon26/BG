@@ -1,10 +1,10 @@
 //카드 맞추기 ,
 import React, { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getOne } from "../api/cardApi";
-import StopMenu from "../components/Button/StopMenu";
-import "./GuessCardPage.css";
-const GuessCardPage = () => {
+import { getOne } from "../../api/cardApi";
+import StopMenu from "../Button/StopMenu";
+import "./GuessCard.css";
+const GuessCard = () => {
   const location = useLocation();
   const { step, usedNumberCards, usedPictureCards } = location.state;
   const pickCnt = step === 1 ? 4 : step === 2 ? 7 : 9; //스텝에 따른 문제수
@@ -60,28 +60,42 @@ const GuessCardPage = () => {
   const [indexCard, setIndexCard] = useState([]);
 
   //문제카드 url 변경
+  const fetchCard = async () => {
+    const imageUrl = await getOne(
+      `${pickCards[pickIndex][order.current]}.png` //문제카드
+    );
+    setCard(imageUrl);
+  };
 
   useEffect(() => {
-    const fetchCard = async () => {
-      const imageUrl = await getOne(
-        `${pickCards[pickIndex][order.current]}.png` //문제카드
-      );
-      setCard(imageUrl);
-    };
+    // const fetchCard = async () => {
+    //   const imageUrl = await getOne(
+    //     `${pickCards[pickIndex][order.current]}.png` //문제카드
+    //   );
+    //   setCard(imageUrl);
+    // };
     fetchCard();
   }, []);
 
   //정답카드
+  const fetchAnswer = async () => {
+    const ans = pickCards[otherIndex][order.current];
+    setAnswerName(ans);
+    const imageUrl = await getOne(
+      `${pickCards[otherIndex][order.current]}.png` //문제카드
+    );
+    setAnswer(imageUrl);
+  };
 
   useEffect(() => {
-    const fetchAnswer = async () => {
-      const ans = pickCards[otherIndex][order.current];
-      setAnswerName(ans);
-      const imageUrl = await getOne(
-        `${pickCards[otherIndex][order.current]}.png` //문제카드
-      );
-      setAnswer(imageUrl);
-    };
+    // const fetchAnswer = async () => {
+    //   const ans = pickCards[otherIndex][order.current];
+    //   setAnswerName(ans);
+    //   const imageUrl = await getOne(
+    //     `${pickCards[otherIndex][order.current]}.png` //문제카드
+    //   );
+    //   setAnswer(imageUrl);
+    // };
     fetchAnswer();
   }, [card]);
 
@@ -100,27 +114,40 @@ const GuessCardPage = () => {
   };
 
   //배열에서 정답 빼기
+  const choiceThings = () => {
+    const choiceArray = otherChoice.filter((card) => card != answerName);
+    return choiceArray;
+  };
+
   useEffect(() => {
-    const choiceThings = () => {
-      const choiceArray = otherChoice.filter((card) => card != answerName);
-      return choiceArray;
-    };
+    // const choiceThings = () => {
+    //   const choiceArray = otherChoice.filter((card) => card != answerName);
+    //   return choiceArray;
+    // };
     setChoiceOthers(shuffle(choiceThings()));
-    console.log(choiceOthers, "들어가보시짘ㅋ");
   }, [answerName]);
 
   //선택지5개 url으로 변경
+  const fetchUrls = async (array) => {
+    const fiveUrls = [];
+    for (const card of array) {
+      const url = await getOne(`${card}.png`);
+      fiveUrls.push(url);
+    }
+    return fiveUrls;
+  };
+
   useEffect(() => {
     const fiveCards = [...choiceOthers].slice(0, 5);
-    const fetchUrls = async () => {
-      const fiveUrls = [];
-      for (const card of fiveCards) {
-        const url = await getOne(`${card}.png`);
-        fiveUrls.push(url);
-      }
-      return fiveUrls;
-    };
-    fetchUrls().then((fiveUrls) => {
+    // const fetchUrls = async () => {
+    //   const fiveUrls = [];
+    //   for (const card of fiveCards) {
+    //     const url = await getOne(`${card}.png`);
+    //     fiveUrls.push(url);
+    //   }
+    //   return fiveUrls;
+    // };
+    fetchUrls(fiveCards).then((fiveUrls) => {
       setShuffledCards(fiveUrls);
     });
   }, [choiceOthers]);
@@ -130,6 +157,21 @@ const GuessCardPage = () => {
     const sixCards = shuffle([...shuffledCards, answer]);
     setFinalCards(sixCards);
   }, [shuffledCards]);
+
+  const fetchData = async () => {
+    try {
+      await fetchCard();
+      await fetchAnswer();
+      choiceThings();
+      const fiveCards = [...choiceOthers].slice(0, 5);
+      const fiveUrls = await fetchUrls(fiveCards);
+      setShuffledCards(fiveUrls);
+      const sixCards = shuffle([...shuffledCards, answer]);
+      setFinalCards(sixCards);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   //클릭 후 새로운 문제 나타내기
   const handleCardClick = (clickedCard) => {
@@ -148,6 +190,7 @@ const GuessCardPage = () => {
       //   }, 3000);
       // }
       // 다음 문제 카드 가져오기
+      fetchData();
     } else {
       alert("틀렸습니다! 다시 골라보세요");
     }
@@ -191,4 +234,4 @@ const GuessCardPage = () => {
   );
 };
 
-export default GuessCardPage;
+export default GuessCard;

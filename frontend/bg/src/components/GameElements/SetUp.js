@@ -1,9 +1,9 @@
 //게임 단계 설정
-import setup_back from "../images/setup_background.png";
+import setup_back from "../../images/setup_background.png";
 import { Link, useLocation } from "react-router-dom";
-import SelectMenu from "../components/Button/SelectMenu";
-import "./SetUpPage.css";
-const SetUpPage = () => {
+import SelectMenu from "../Button/SelectMenu";
+import "./SetUp.css";
+const SetUp = ({ next }) => {
   const backStyles = {
     backgroundImage: `url(${setup_back})`,
     backgroundSize: "cover",
@@ -13,7 +13,7 @@ const SetUpPage = () => {
   const location = useLocation(); //Url정보 할당
   const searchParams = new URLSearchParams(location.search); //쿼리 문자열 추출
   const gameType = searchParams.get("type"); //gameType 가져오기
-  const nextPath = "/game/howto";
+  const nextPath = "/game/card";
 
   return (
     <div style={backStyles}>
@@ -22,11 +22,11 @@ const SetUpPage = () => {
       </div>
       <div className="select-txt font3-sub mt-1">단계를 선택해주세요!</div>
       <div className="step">
-        <div className="step-container">
-          <Link to={{ pathname: nextPath, search: `?type=${gameType}&step=1` }}>
-            <div className="select-txt font3-step mt-1">1단계</div>
-            <div className="description">"처음이라면 선택 ! 가장 쉬워요."</div>
-          </Link>
+        <div className="step-container" onClick={() => next("howTo", 1)}>
+          {/* <Link to={{ pathname: nextPath, search: `?type=${gameType}&step=1` }}> */}
+          <div className="select-txt font3-step mt-1">1단계</div>
+          <div className="description">"처음이라면 선택 ! 가장 쉬워요."</div>
+          {/* </Link> */}
         </div>
         <div className="step-container">
           <Link to={{ pathname: nextPath, search: `?type=${gameType}&step=2` }}>
@@ -47,4 +47,4 @@ const SetUpPage = () => {
   );
 };
 
-export default SetUpPage;
+export default SetUp;

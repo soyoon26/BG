@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import background from "../images/setup_background.png";
-import "./SelectPage.css";
+import "./Select.css";
 import "../App.css";
 import card from "../images/짝맞추기.png";
 import phone from "../images/번호외우기.png";
-const SelectPage = () => {
+const Select = () => {
   const backStyles = {
     backgroundImage: `url(${background})`,
     backgroundSize: "cover",
@@ -23,7 +23,7 @@ const SelectPage = () => {
       <div className="select-txt font3-sub mt-1">게임을 선택해주세요!</div>
       <div className="image-container">
         <div className="game-option text-4xl">
-          <Link to={{ pathname: "../game/set", search: "?type=card" }}>
+          <Link to={{ pathname: "../game/card", search: "?type=card" }}>
             <img
               src={card}
               alt="카드 짝 맞추기"
@@ -49,4 +49,4 @@ const SelectPage = () => {
   );
 };
 
-export default SelectPage;
+export default Select;

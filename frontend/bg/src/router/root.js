@@ -1,18 +1,18 @@
 import { Suspense, lazy } from "react";
-import HowToPage from "../pages/HowToPage";
 
 const { createBrowserRouter } = require("react-router-dom");
 
 const Loading = <div>Loading...</div>; //지연로딩, 필요한 순간까지 컴포넌트를 메모리상으로 올리지 않도록
 const Main = lazy(() => import("../pages/MainPage"));
 const About = lazy(() => import("../pages/AboutPage"));
-const Select = lazy(() => import("../pages/SelectPage"));
-const SetUp = lazy(() => import("../pages/SetUpPage"));
-const GameCard = lazy(() => import("../pages/GameCard"));
-const GameNumber = lazy(() => import("../pages/GameNumber"));
-const HowTo = lazy(() => import("../pages/HowToPage"));
-const GuessCard = lazy(() => import("../pages/GuessCardPage"));
-const Score = lazy(() => import("../pages/ScorePage"));
+const Select = lazy(() => import("../pages/Select"));
+const SetUp = lazy(() => import("../components/GameElements/SetUp"));
+const HowTo = lazy(() => import("../components/GameElements/HowTo"));
+const GameCard = lazy(() => import("../components/CardGame/GameCard"));
+//const GameNumber = lazy(() => import("../components/GameNumber"));
+const GuessCard = lazy(() => import("../components/CardGame/GuessCard"));
+const Score = lazy(() => import("../components/GameElements/Score"));
+const CardPage = lazy(() => import("../pages/CardPage"));
 
 const root = createBrowserRouter([
   {
@@ -47,21 +47,17 @@ const root = createBrowserRouter([
       </Suspense>
     ),
   },
-  {
-    path: "/game/card",
-    element: (
-      <Suspense fallback={Loading}>
-        <GameCard />
-      </Suspense>
-    ),
-  },
+  // {
+  //   path: "/game/card",
+  //   element: (
+  //     <Suspense fallback={Loading}>
+  //       <GameCard />
+  //     </Suspense>
+  //   ),
+  // },
   {
     path: "/game/number",
-    element: (
-      <Suspense fallback={Loading}>
-        <GameNumber />
-      </Suspense>
-    ),
+    element: <Suspense fallback={Loading}>{/* <GameNumber /> */}</Suspense>,
   },
   {
     path: "game/howto",
@@ -75,7 +71,7 @@ const root = createBrowserRouter([
     path: "game/guess",
     element: (
       <Suspense fallback={Loading}>
-        <GuessCard />
+        <CardPage />
       </Suspense>
     ),
   },
@@ -84,6 +80,14 @@ const root = createBrowserRouter([
     element: (
       <Suspense fallback={Loading}>
         <Score />
+      </Suspense>
+    ),
+  },
+  {
+    path: "game/card",
+    element: (
+      <Suspense fallback={Loading}>
+        <CardPage />
       </Suspense>
     ),
   },
