@@ -12,11 +12,7 @@ const CardPage = () => {
   const [usedNumber, setUsedNumber] = useState(["?"]);
   const [level, setLevel] = useState(0);
 
-  const next = (nextStep, level) => {
-    setStep(nextStep);
-    setLevel(level);
-    console.log("씨발", level);
-  };
+  const next = (nextStep, level) => {};
   const nextCard = (nextStep, nextLevel, nextUsedPicture, nextUsedNumber) => {
     setStep(nextStep);
     setLevel(nextLevel);
@@ -86,7 +82,7 @@ const CardPage = () => {
             gameType={gameType}
             level={level}
             usedPicture={usedPicture}
-            usedNumber={usedPicture}
+            usedNumber={usedNumber}
           />
         )}
         {step === "score" && <Score />}
