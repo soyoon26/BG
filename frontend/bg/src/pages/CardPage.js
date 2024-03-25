@@ -8,12 +8,20 @@ import Score from "../components/GameElements/Score";
 const gameType = "card";
 const CardPage = () => {
   const [step, setStep] = useState("setUp");
+  const [usedPicture, setUsedPicture] = useState(["?"]);
+  const [usedNumber, setUsedNumber] = useState(["?"]);
   const [level, setLevel] = useState(0);
 
   const next = (nextStep, level) => {
     setStep(nextStep);
     setLevel(level);
     console.log("씨발", level);
+  };
+  const nextCard = (nextStep, nextLevel, nextUsedPicture, nextUsedNumber) => {
+    setStep(nextStep);
+    setLevel(nextLevel);
+    setUsedPicture(nextUsedPicture);
+    setUsedNumber(nextUsedNumber);
   };
 
   return (
@@ -41,22 +49,44 @@ const CardPage = () => {
         )}
         {step === "gameCard" && (
           <GameCard
-            next={(nextStep, nextLevel) => {
+            nextCard={(
+              nextStep,
+              nextLevel,
+              nextUsedPicture,
+              nextUsedNumber
+            ) => {
               setStep(nextStep);
               setLevel(nextLevel);
+              setUsedPicture(nextUsedPicture);
+              setUsedNumber(nextUsedNumber);
+              console.log(nextUsedPicture);
+              console.log(nextUsedNumber);
             }}
             gameType={gameType}
             level={level}
+            usedPicture={usedPicture}
+            usedNumber={usedPicture}
           />
         )}
         {step === "guess" && (
           <GuessCard
-            next={(nextStep, nextLevel) => {
+            nextCard={(
+              nextStep,
+              nextLevel,
+              nextUsedPicture,
+              nextUsedNumber
+            ) => {
               setStep(nextStep);
               setLevel(nextLevel);
+              setUsedPicture(nextUsedPicture);
+              setUsedNumber(nextUsedNumber);
+              console.log(nextUsedPicture);
+              console.log(nextUsedNumber);
             }}
             gameType={gameType}
             level={level}
+            usedPicture={usedPicture}
+            usedNumber={usedPicture}
           />
         )}
         {step === "score" && <Score />}

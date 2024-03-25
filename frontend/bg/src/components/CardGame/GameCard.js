@@ -4,8 +4,7 @@ import { getOne } from "../../api/cardApi";
 import StopMenu from "../Button/StopMenu";
 import "./GameCard.css";
 
-const GameCard = ({ next, gameType, level }) => {
-  console.log("왜안보이냐고", level);
+const GameCard = ({ nextCard, level }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -94,8 +93,8 @@ const GameCard = ({ next, gameType, level }) => {
     };
 
     let cardCnt = 4;
-    if (step === 2) cardCnt = 6;
-    else if (step === 3) cardCnt = 9; //문제수
+    if (level === 2) cardCnt = 6;
+    else if (level === 3) cardCnt = 9; //문제수
 
     if (cnt.current < cardCnt) {
       const intervalId = setInterval(() => {
@@ -107,15 +106,9 @@ const GameCard = ({ next, gameType, level }) => {
       return () => clearInterval(intervalId);
     } else {
       setTimeout(() => {
-        const currentUsedNumberCards = [...usedNumberCards]; // 배열을 복사하여 캡처
-        const currentUsedPictureCards = [...usedPictureCards];
-        navigate("/game/guess", {
-          state: {
-            step: step,
-            usedNumberCards: currentUsedNumberCards,
-            usedPictureCards: currentUsedPictureCards,
-          },
-        });
+        const UsedNumber = [...usedNumberCards]; // 배열을 복사하여 캡처
+        const UsedPicture = [...usedPictureCards];
+        nextCard("guess", level, UsedPicture, UsedNumber);
       }, 3000);
     }
   }, [usedPictureCards, usedNumberCards]);
