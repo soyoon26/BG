@@ -1,13 +1,10 @@
 import StartButton from "../Button/StartButton";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./HowTo.css";
 
 const HowTo = ({ next, gameType, level }) => {
-  //const nextPath = gameType === "card" ? "/game/card" : "/game/number";
   const location = useLocation(); //Url정보 할당
   const searchParams = new URLSearchParams(location.search); //쿼리 문자열 추출
-  //const gameType = searchParams.get("type"); //gameType 가져오기
-  const step = searchParams.get("step");
 
   return (
     <div className="howto-container">
@@ -24,6 +21,12 @@ const HowTo = ({ next, gameType, level }) => {
           맞춰주시면 됩니다.
           <br />
           <br />
+          <div
+            className="start-container"
+            onClick={() => next("gameCard", level)}
+          >
+            <StartButton />
+          </div>
         </div>
       )}
       {gameType === "number" && (
@@ -36,11 +39,14 @@ const HowTo = ({ next, gameType, level }) => {
           카드가 나왔던 순서를 거꾸로 선택해주세요.
           <br />
           <br />
+          <div
+            className="start-container"
+            onClick={() => next("gameCard", level)}
+          >
+            <StartButton />
+          </div>
         </div>
       )}
-      <div className="start-container" onClick={() => next("gameCard", level)}>
-        <StartButton />
-      </div>
     </div>
   );
 };

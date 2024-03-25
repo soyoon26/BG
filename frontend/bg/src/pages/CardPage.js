@@ -8,7 +8,7 @@ import Score from "../components/GameElements/Score";
 const gameType = "card";
 const CardPage = () => {
   const [step, setStep] = useState("setUp");
-  const [level, setLevel] = useState(1);
+  const [level, setLevel] = useState(0);
 
   const next = (nextStep, level) => {
     setStep(nextStep);

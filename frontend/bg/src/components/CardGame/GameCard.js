@@ -4,11 +4,12 @@ import { getOne } from "../../api/cardApi";
 import StopMenu from "../Button/StopMenu";
 import "./GameCard.css";
 
-const GameCard = () => {
+const GameCard = ({ next, gameType, level }) => {
+  console.log("왜안보이냐고", level);
   const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const step = parseInt(searchParams.get("step")); //정수로 바꿔줌
+  const step = parseInt(searchParams.get(level)); //정수로 바꿔줌
   const [pictureCard, setPictureCard] = useState(null);
   const [numberCard, setNumberCard] = useState(null);
   const [usedPictureCards, setUsedPictureCards] = useState([]); //사용된 그림 카드 배열
@@ -122,7 +123,7 @@ const GameCard = () => {
   return (
     <div>
       <div className="step-info">
-        {step}단계 게임 <StopMenu />
+        {level}단계 게임 <StopMenu />
       </div>
       <div className="card-container">
         {pictureCard && (
