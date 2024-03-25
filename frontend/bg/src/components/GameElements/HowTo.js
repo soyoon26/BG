@@ -13,7 +13,6 @@ const HowTo = ({ next, gameType, level }) => {
     <div className="howto-container">
       {gameType === "card" && (
         <div className="card-howto font3 text-3xl text-center">
-          {level} ,썅,{gameType}
           {/* 카드게임 */}
           <br />
           먼저 카드가 짝을 지어 나옵니다.
@@ -23,6 +22,7 @@ const HowTo = ({ next, gameType, level }) => {
           화면에 나타나는 한 카드가 어떤 카드와 짝이었는지
           <br />
           맞춰주시면 됩니다.
+          <br />
           <br />
         </div>
       )}
@@ -35,10 +35,11 @@ const HowTo = ({ next, gameType, level }) => {
           <br />
           카드가 나왔던 순서를 거꾸로 선택해주세요.
           <br />
+          <br />
         </div>
       )}
-      <div className="start-container">
-        <StartButton onClick={() => next(gameType, level)} />
+      <div className="start-container" onClick={() => next("gameCard", level)}>
+        <StartButton />
       </div>
     </div>
   );

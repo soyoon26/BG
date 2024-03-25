@@ -23,7 +23,7 @@ const Select = () => {
       <div className="select-txt font3-sub mt-1">게임을 선택해주세요!</div>
       <div className="image-container">
         <div className="game-option text-4xl">
-          <Link to={{ pathname: "../game/card", search: "?type=card" }}>
+          <Link to={{ pathname: "../game/card" }}>
             <img
               src={card}
               alt="카드 짝 맞추기"

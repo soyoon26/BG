@@ -39,8 +39,26 @@ const CardPage = () => {
             level={level}
           />
         )}
-        {step === "gameCard" && <GameCard next={() => setStep("guess")} />}
-        {step === "guess" && <GuessCard next={() => setStep("score")} />}
+        {step === "gameCard" && (
+          <GameCard
+            next={(nextStep, nextLevel) => {
+              setStep(nextStep);
+              setLevel(nextLevel);
+            }}
+            gameType={gameType}
+            level={level}
+          />
+        )}
+        {step === "guess" && (
+          <GuessCard
+            next={(nextStep, nextLevel) => {
+              setStep(nextStep);
+              setLevel(nextLevel);
+            }}
+            gameType={gameType}
+            level={level}
+          />
+        )}
         {step === "score" && <Score />}
       </main>
     </div>
