@@ -49,6 +49,32 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
 
   console.log("6개의 보기", sixOpt);
 
+  const fetchAllUrls = async (pictureArray) => {
+    const urlArray = [];
+    for (const picture of pictureArray) {
+      const imageUrl = await getOne(`${picture}.png`);
+      urlArray.push(imageUrl);
+    }
+    console.log(urlArray);
+    return urlArray;
+  };
+  const [optUrl, setOptUrl] = useState([]);
+  useEffect(() => {
+    const fetchUrls = async () => {
+      try {
+        const urls = await fetchAllUrls(sixOpt);
+        console.log(urls, "선택지링크 이거 나와야 해");
+        setOptUrl(urls);
+      } catch (error) {
+        console.error("Error occurred while fetching URLs:", error);
+      }
+    };
+    console.log("마지막 선택지", optUrl);
+    fetchUrls();
+  }, []);
+
+  console.log("마지막 선택지 dho", optUrl);
+
   return (
     <div>
       <div className="step-info">
@@ -60,26 +86,26 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
         </div>
         <div>
           <div className="choices">
-            {/* {sixUrls.slice(0, 3).map((card, index) => (
+            {optUrl.slice(0, 3).map((card, index) => (
               <img
                 key={index}
                 className="choice-cards"
                 src={card}
                 alt="선택지 카드"
-                onClick={() => handleCardClick(card)}
+                // onClick={() => handleCardClick(card)}
               />
-            ))} */}
+            ))}
           </div>
           <div className="choices">
-            {/* {sixUrls.slice(3, 6).map((card, index) => (
+            {optUrl.slice(3, 6).map((card, index) => (
               <img
                 key={index}
                 className="choice-cards"
                 src={card}
                 alt="선택지 카드"
-                onClick={() => handleCardClick(card)}
+                // onClick={() => handleCardClick(card)}
               />
-            ))} */}
+            ))}
           </div>
         </div>
       </div>
