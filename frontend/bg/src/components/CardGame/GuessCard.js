@@ -1,5 +1,5 @@
 //카드 맞추기 ,
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getOne } from "../../api/cardApi";
 import StopMenu from "../Button/StopMenu";
@@ -21,7 +21,7 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
     }
     return shuffledArray;
   }
-  const shuffleIdx = shuffle(idx);
+  const shuffleIdx = useMemo(() => shuffle(idx), []);
   console.log(shuffleIdx, "셔플된 인덱스");
   const order = useRef(0);
   let no = shuffleIdx[order.current]; //문제의 순서
@@ -37,17 +37,21 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
   useEffect(() => {
     fetchQ();
     console.log(question);
-  }, [no]);
+  }, []);
   const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
   let lastOpt = numberCards.filter((card) => card != answer);
   console.log("정답아닌", lastOpt);
 
-  let shuffleLastOpt = shuffle(lastOpt).slice(0, 5);
+  const shuffleLastOpt = useMemo(() => shuffle(lastOpt).slice(0, 5), []);
+
+  //let shuffleLastOpt = shuffle(lastOpt).slice(0, 5);
   shuffleLastOpt.push(answer);
   console.log("섞기 전", shuffleLastOpt);
-  let sixOpt = shuffle(shuffleLastOpt);
+  const sixOpt = useMemo(() => shuffle(shuffleLastOpt), []);
 
-  console.log("6개의 보기", sixOpt);
+  const click = useMemo(() => sixOpt.indexOf(answer), []);
+
+  console.log("6개의 보기", sixOpt, click);
 
   const fetchAllUrls = async (pictureArray) => {
     const urlArray = [];
@@ -59,22 +63,39 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
     return urlArray;
   };
   const [optUrl, setOptUrl] = useState([]);
+  const [clickCard, setClickCard] = useState();
+  const clickAns = "";
   useEffect(() => {
     const fetchUrls = async () => {
       try {
         const urls = await fetchAllUrls(sixOpt);
-        console.log(urls, "선택지링크 이거 나와야 해");
+        console.log(urls, "선택지링크 이거 나와야 해", answer);
         setOptUrl(urls);
+        setClickCard(click);
+        clickAns = optUrl[click];
+        console.log("왜 다른게??", sixOpt, optUrl, click, clickAns);
+        console.log("제발요이거야해", clickCard);
       } catch (error) {
         console.error("Error occurred while fetching URLs:", error);
       }
     };
-    console.log("마지막 선택지", optUrl);
+    console.log("마지막 선택지", sixOpt, optUrl);
     fetchUrls();
   }, []);
 
-  console.log("마지막 선택지 dho", optUrl);
+  console.log("마지막 선택지 dho", question, answer, sixOpt, optUrl);
+  const final = optUrl;
 
+  const handleClick = (selectedCard) => {
+    if (selectedCard === optUrl[click]) {
+      alert("정답입니다!");
+
+      order.current += 1;
+    } else {
+      alert("틀렸습니다.");
+      console.log("왜 아니묘", optUrl[click]);
+    }
+  };
   return (
     <div>
       <div className="step-info">
@@ -86,24 +107,24 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
         </div>
         <div>
           <div className="choices">
-            {optUrl.slice(0, 3).map((card, index) => (
+            {final.slice(0, 3).map((card, index) => (
               <img
                 key={index}
                 className="choice-cards"
                 src={card}
                 alt="선택지 카드"
-                // onClick={() => handleCardClick(card)}
+                onClick={() => handleClick(card)}
               />
             ))}
           </div>
           <div className="choices">
-            {optUrl.slice(3, 6).map((card, index) => (
+            {final.slice(3, 6).map((card, index) => (
               <img
                 key={index}
                 className="choice-cards"
                 src={card}
                 alt="선택지 카드"
-                // onClick={() => handleCardClick(card)}
+                onClick={() => handleClick(card)}
               />
             ))}
           </div>

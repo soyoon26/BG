@@ -34,7 +34,7 @@ const Select = () => {
           </Link>
         </div>
         <div className="game-option">
-          <Link to={{ pathname: "../game/set", search: "?type=number" }}>
+          <Link to={{ pathname: "../game/number" }}>
             <img
               src={phone}
               alt="번호외우기"
