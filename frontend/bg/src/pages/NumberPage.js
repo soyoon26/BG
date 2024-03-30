@@ -68,7 +68,7 @@ const NumberPage = () => {
             usedNumber={usedNumber}
           />
         )}
-        {step === "score" && <Score />}
+        {step === "score" && <Score level={level} score={usedNumber} />}
       </main>
     </div>
   );

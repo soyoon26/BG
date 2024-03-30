@@ -5,10 +5,11 @@ import StopMenu from "../Button/StopMenu";
 import "./ReverseNumber.css";
 
 const ReverseNumber = ({ nextCard, level, usedNumber }) => {
-  const questionCnt = level === 1 ? 4 : level === 2 ? 7 : 9; //스텝에 따른 문제수
+  const pbCnt = level === 1 ? 4 : level === 2 ? 7 : 9; //스텝에 따른 문제수
   const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
   const [final, setFinal] = useState([]);
   const order = useRef(0);
+  const score = useRef(100);
   const reverseArr = usedNumber.reverse();
   console.log(reverseArr, "거꾸로");
   const fetchAllUrls = async (numberArray) => {
@@ -36,6 +37,14 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
     if (event + 1 == reverseArr[order.current]) {
       alert("정답입니다!");
       order.current += 1;
+      if (order.current == pbCnt) {
+        console.log("왜 안 넘어삼", score);
+
+        nextCard("score", level, score.current);
+      }
+    } else {
+      alert("틀렸습니다. 다시 골라주세요!");
+      score.current -= 5;
     }
     console.log(event);
   };
