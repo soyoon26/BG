@@ -9,10 +9,10 @@
 
 .card-container {
   display: flex;
-  align-items: center; /* 수직 중앙 정렬 */
-  flex-direction: column; /* 수직 방향으로 배치 */
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  height: 80vh; /* 화면 전체 높이 */
+  height: 80vh;
 }
 
 .choices {

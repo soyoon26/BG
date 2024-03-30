@@ -9,6 +9,8 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
   const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
   const [final, setFinal] = useState([]);
   const order = useRef(0);
+  const reverseArr = usedNumber.reverse();
+  console.log(reverseArr, "거꾸로");
   const fetchAllUrls = async (numberArray) => {
     const urlArray = [];
     for (const number of numberArray) {
@@ -28,6 +30,16 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
     fetchFinal();
   }, []); // useEffect가 최초로 실행될 때만 실행되도록 빈 종속성 배열을 전달합니다.
 
+  const handleClick = (event) => {
+    console.log("order", order.current);
+    console.log("클릭해야됨", event, reverseArr[order.current]);
+    if (event + 1 == reverseArr[order.current]) {
+      alert("정답입니다!");
+      order.current += 1;
+    }
+    console.log(event);
+  };
+
   return (
     <div>
       <div className="step-info">
@@ -41,7 +53,7 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
               className="choice-cards"
               src={card}
               alt="선택지 카드"
-              //onClick={() => handleClick(card)}
+              onClick={() => handleClick(index)}
             />
           ))}
         </div>
@@ -52,7 +64,7 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
               className="choice-cards"
               src={card}
               alt="선택지 카드"
-              //onClick={() => handleClick(card)}
+              onClick={() => handleClick(index + 5)}
             />
           ))}
         </div>

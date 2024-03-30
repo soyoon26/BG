@@ -61,7 +61,7 @@ const CardPage = () => {
             gameType={gameType}
             level={level}
             usedPicture={usedPicture}
-            usedNumber={usedPicture}
+            usedNumber={usedNumber}
           />
         )}
         {step === "guess" && (

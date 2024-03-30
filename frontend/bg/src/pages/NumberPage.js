@@ -47,10 +47,12 @@ const NumberPage = () => {
             nextCard={(nextStep, nextLevel, nextUsedNumber) => {
               setStep(nextStep);
               setLevel(nextLevel);
+              setUsedNumber(nextUsedNumber);
               console.log(nextUsedNumber);
             }}
             gameType={gameType}
             level={level}
+            usedNumber={usedNumber}
           />
         )}
         {step === "reverse" && (
@@ -58,9 +60,7 @@ const NumberPage = () => {
             nextCard={(nextStep, nextLevel, nextUsedNumber) => {
               setStep(nextStep);
               setLevel(nextLevel);
-
               setUsedNumber(nextUsedNumber);
-
               console.log(nextUsedNumber);
             }}
             gameType={gameType}

@@ -47,6 +47,7 @@ const GameNumber = ({ nextCard, level }) => {
     } else {
       setTimeout(() => {
         const UsedNumber = [...usedNumberCards]; // 배열을 복사하여 캡처
+        console.log(UsedNumber, "왜 안 넘어가지");
         nextCard("reverse", level, UsedNumber);
       }, 3000);
     }
