@@ -38,8 +38,6 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
       alert("정답입니다!");
       order.current += 1;
       if (order.current == pbCnt) {
-        console.log("왜 안 넘어삼", score);
-
         nextCard("score", level, score.current);
       }
     } else {

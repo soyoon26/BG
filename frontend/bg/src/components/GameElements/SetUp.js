@@ -10,11 +10,6 @@ const SetUp = ({ next }) => {
     height: "100vh",
   };
 
-  const location = useLocation(); //Url정보 할당
-  const searchParams = new URLSearchParams(location.search); //쿼리 문자열 추출
-  const gameType = searchParams.get("type"); //gameType 가져오기
-  const nextPath = "/game/card";
-
   return (
     <div style={backStyles}>
       <div className=" flex justify-end p-5 font-large">
@@ -26,19 +21,13 @@ const SetUp = ({ next }) => {
           <div className="select-txt font3-step mt-1">1단계</div>
           <div className="description">"처음이라면 선택 ! 가장 쉬워요."</div>
         </div>
-        <div className="step-container">
-          <Link to={{ pathname: nextPath, search: `?type=${gameType}&step=2` }}>
-            <div className="select-txt font3-step mt-1">2단계</div>
-            <div className="description">
-              "1단계를 잘 통과하였다면 2단계로~"
-            </div>
-          </Link>
+        <div className="step-container" onClick={() => next("howTo", 2)}>
+          <div className="select-txt font3-step mt-1">2단계</div>
+          <div className="description">"1단계를 잘 통과하였다면 2단계로~"</div>
         </div>
-        <div className="step-container">
-          <Link to={{ pathname: nextPath, search: `?type=${gameType}&step=3` }}>
-            <div className="select-txt font3-step mt-1">3단계</div>
-            <div className="description">"게임에 자신이 있다면 도전 !"</div>
-          </Link>
+        <div className="step-container" onClick={() => next("howTo", 3)}>
+          <div className="select-txt font3-step mt-1">3단계</div>
+          <div className="description">"게임에 자신이 있다면 도전 !"</div>
         </div>
       </div>
     </div>
