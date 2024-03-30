@@ -1,0 +1,24 @@
+@import "../../styles/fonts.css";
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgb(244, 75, 126);
+  top: 50%;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 80vh;
+}
+.score-container {
+  display: contents;
+  margin-top: 20vh;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-family: "Radio", sans-serif;
+  font-size: 13vw;
+  line-height: 1;
+}
