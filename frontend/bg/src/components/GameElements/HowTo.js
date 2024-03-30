@@ -41,7 +41,7 @@ const HowTo = ({ next, gameType, level }) => {
           <br />
           <div
             className="start-container"
-            onClick={() => next("gameCard", level)}
+            onClick={() => next("gameNumber", level)}
           >
             <StartButton />
           </div>

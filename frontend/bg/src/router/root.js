@@ -56,10 +56,10 @@ const root = createBrowserRouter([
   //     </Suspense>
   //   ),
   // },
-  {
-    path: "/game/number",
-    element: <Suspense fallback={Loading}>{/* <GameNumber /> */}</Suspense>,
-  },
+  //{
+  //path: "/game/number",
+  //element: <Suspense fallback={Loading}>{/* <GameNumber /> */}</Suspense>,
+  //},
   {
     path: "game/howto",
     element: (

@@ -1,0 +1,22 @@
+@import "../../styles/fonts.css";
+
+.match-card {
+  width: 23vw;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; /* 수직 중앙 정렬 */
+  height: 80vh; /* 화면 전체 높이 */
+}
+
+.step-info {
+  font-family: "Radio", snas-serif;
+  font-size: 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-left: 5%;
+  margin-right: 5%;
+}

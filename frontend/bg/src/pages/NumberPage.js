@@ -5,12 +5,12 @@ import SetUp from "../components/GameElements/SetUp";
 import HowTo from "../components/GameElements/HowTo";
 import GameNumber from "../components/NumberGame/GameNumber";
 import Score from "../components/GameElements/Score";
-
+const gameType = "number";
 const NumberPage = () => {
   const [step, setStep] = useState("setUp");
   const [level, setLevel] = useState(0);
   const [usedNumber, setUsedNumber] = useState([]);
-  const gameType = "Number";
+
   const next = (nextStep, level) => {};
   const nextCard = (nextStep, nextLevel, nextUsedPicture, nextUsedNumber) => {
     // setStep(nextStep);
@@ -41,7 +41,7 @@ const NumberPage = () => {
             level={level}
           />
         )}
-        {step === "number" && (
+        {step === "gameNumber" && (
           <GameNumber
             nextCard={(nextStep, nextLevel, nextUsedNumber) => {
               setStep(nextStep);

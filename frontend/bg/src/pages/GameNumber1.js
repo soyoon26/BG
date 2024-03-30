@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getOne } from "../api/cardApi";
 
-const GameNumber = () => {
+const GameNumber1 = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const step = searchParams.get("step");
@@ -32,4 +32,4 @@ const GameNumber = () => {
   );
 };
 
-export default GameNumber;
+export default GameNumber1;

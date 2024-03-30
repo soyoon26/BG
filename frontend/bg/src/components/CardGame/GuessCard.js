@@ -22,10 +22,10 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
     return shuffledArray;
   }
   const shuffleIdx = useMemo(() => shuffle(idx), []);
-  console.log(shuffleIdx, "셔플된 인덱스");
-  const order = useRef(0);
-  let no = shuffleIdx[order.current]; //문제의 순서
-  console.log(no, shuffleIdx[order.current], "문제순서");
+
+  let order = 0;
+
+  let no = shuffleIdx[order]; //문제의 순서
   let answer = usedNumber[no];
   console.log("정담", answer, usedPicture[no]);
   // 만약 이번에 가져와야 할 인덱스
@@ -37,15 +37,16 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
   useEffect(() => {
     fetchQ();
     console.log(question);
-  }, []);
+  }, order);
   const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
   let lastOpt = numberCards.filter((card) => card != answer);
   console.log("정답아닌", lastOpt);
 
-  const shuffleLastOpt = useMemo(() => shuffle(lastOpt).slice(0, 5), []);
-
+  const shuffleLastOpt = useMemo(() => shuffle(lastOpt).slice(0, 5), [order]);
+  console.log("셔플드라스트", order);
   //let shuffleLastOpt = shuffle(lastOpt).slice(0, 5);
   shuffleLastOpt.push(answer);
+  console.log(answer);
   console.log("섞기 전", shuffleLastOpt);
   const sixOpt = useMemo(() => shuffle(shuffleLastOpt), []);
 
@@ -89,11 +90,12 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
   const handleClick = (selectedCard) => {
     if (selectedCard === optUrl[click]) {
       alert("정답입니다!");
-
-      order.current += 1;
+      order += 1;
+      no = shuffleIdx[order];
+      answer = usedNumber[no];
+      console.log(answer, no, order);
     } else {
       alert("틀렸습니다.");
-      console.log("왜 아니묘", optUrl[click]);
     }
   };
   return (

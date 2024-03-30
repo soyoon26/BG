@@ -23,10 +23,8 @@ const SetUp = ({ next }) => {
       <div className="select-txt font3-sub mt-1">단계를 선택해주세요!</div>
       <div className="step">
         <div className="step-container" onClick={() => next("howTo", 1)}>
-          {/* <Link to={{ pathname: nextPath, search: `?type=${gameType}&step=1` }}> */}
           <div className="select-txt font3-step mt-1">1단계</div>
           <div className="description">"처음이라면 선택 ! 가장 쉬워요."</div>
-          {/* </Link> */}
         </div>
         <div className="step-container">
           <Link to={{ pathname: nextPath, search: `?type=${gameType}&step=2` }}>
