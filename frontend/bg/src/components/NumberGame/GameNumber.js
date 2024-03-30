@@ -47,7 +47,7 @@ const GameNumber = ({ nextCard, level }) => {
     } else {
       setTimeout(() => {
         const UsedNumber = [...usedNumberCards]; // 배열을 복사하여 캡처
-        nextCard("guess", level, UsedNumber);
+        nextCard("reverse", level, UsedNumber);
       }, 3000);
     }
   }, [usedNumberCards]);

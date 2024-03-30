@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import SetUp from "../components/GameElements/SetUp";
 import HowTo from "../components/GameElements/HowTo";
 import GameNumber from "../components/NumberGame/GameNumber";
+import ReverseNumber from "../components/NumberGame/ReverseNumber";
 import Score from "../components/GameElements/Score";
 const gameType = "number";
 const NumberPage = () => {
@@ -12,7 +13,7 @@ const NumberPage = () => {
   const [usedNumber, setUsedNumber] = useState([]);
 
   const next = (nextStep, level) => {};
-  const nextCard = (nextStep, nextLevel, nextUsedPicture, nextUsedNumber) => {
+  const nextCard = (nextStep, nextLevel, nextUsedNumber) => {
     // setStep(nextStep);
     // setLevel(nextLevel);
     // setUsedPicture(nextUsedPicture);
@@ -52,7 +53,21 @@ const NumberPage = () => {
             level={level}
           />
         )}
+        {step === "reverse" && (
+          <ReverseNumber
+            nextCard={(nextStep, nextLevel, nextUsedNumber) => {
+              setStep(nextStep);
+              setLevel(nextLevel);
 
+              setUsedNumber(nextUsedNumber);
+
+              console.log(nextUsedNumber);
+            }}
+            gameType={gameType}
+            level={level}
+            usedNumber={usedNumber}
+          />
+        )}
         {step === "score" && <Score />}
       </main>
     </div>
