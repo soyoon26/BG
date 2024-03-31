@@ -16,15 +16,27 @@ const SetUp = ({ next }) => {
       </div>
       <div className="select-txt font3-sub mt-1">단계를 선택해주세요!</div>
       <div className="step">
-        <div className="step-container" onClick={() => next("howTo", 1)}>
+        <div
+          className="step-container"
+          onClick={() => next("howTo", 1)}
+          style={{ cursor: "pointer" }}
+        >
           <div className="select-txt font3-step mt-1">1단계</div>
           <div className="description">"처음이라면 선택 ! 가장 쉬워요."</div>
         </div>
-        <div className="step-container" onClick={() => next("howTo", 2)}>
+        <div
+          className="step-container"
+          onClick={() => next("howTo", 2)}
+          style={{ cursor: "pointer" }}
+        >
           <div className="select-txt font3-step mt-1">2단계</div>
           <div className="description">"1단계를 잘 통과하였다면 2단계로~"</div>
         </div>
-        <div className="step-container" onClick={() => next("howTo", 3)}>
+        <div
+          className="step-container"
+          onClick={() => next("howTo", 3)}
+          style={{ cursor: "pointer" }}
+        >
           <div className="select-txt font3-step mt-1">3단계</div>
           <div className="description">"게임에 자신이 있다면 도전 !"</div>
         </div>
