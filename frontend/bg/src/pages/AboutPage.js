@@ -1,8 +1,13 @@
 import SelectMenu from "../components/Button/SelectMenu";
-
+import back from "../images/back_ivory.png";
 const AboutPage = () => {
+  const backStyles = {
+    backgroundImage: `url(${back})`,
+    backgroundSize: "cover",
+    height: "100vh",
+  };
   return (
-    <div>
+    <div style={backStyles}>
       <SelectMenu></SelectMenu>
       <div className="font3 text-3xl text-center">
         <br />

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import back from "../../images/back_ivory.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getOne } from "../../api/cardApi";
 import StopMenu from "../Button/StopMenu";
@@ -9,6 +10,11 @@ const GameNumber = ({ nextCard, level }) => {
   const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
   const [usedNumberCards, setUsedNumberCards] = useState([]);
   const cnt = useRef(0);
+  const backStyles = {
+    backgroundImage: `url(${back})`,
+    backgroundSize: "cover",
+    height: "100vh",
+  };
 
   useEffect(() => {
     const fetchNumberCard = async () => {
@@ -53,7 +59,7 @@ const GameNumber = ({ nextCard, level }) => {
     }
   }, [usedNumberCards]);
   return (
-    <div>
+    <div style={backStyles}>
       <div className="step-info">
         {level}단계 게임 <StopMenu />
       </div>

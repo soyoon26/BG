@@ -3,8 +3,14 @@ import React, { useEffect, useState, useRef, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getOne } from "../../api/cardApi";
 import StopMenu from "../Button/StopMenu";
+import back from "../../images/back_ivory.png";
 import "./GuessCard.css";
 const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
+  const backStyles = {
+    backgroundImage: `url(${back})`,
+    backgroundSize: "cover",
+    height: "100vh",
+  };
   const questionCnt = level === 1 ? 4 : level === 2 ? 7 : 9; //스텝에 따른 문제수
   const idx = Array.from({ length: questionCnt }, (_, index) => index);
   const [question, questionSet] = useState();
@@ -99,9 +105,10 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
     }
   };
   return (
-    <div>
+    <div style={backStyles}>
       <div className="step-info">
-        {level}단계 게임 / {order.current + 1}번째 문제 <StopMenu />
+        {level}단계 게임 / {order.current + 1}번째 문제: 어떤 카드와
+        짝이었을까요? <StopMenu />
       </div>
       <div className="card-container">
         <div>

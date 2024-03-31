@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import background from "../images/setup_background.png";
+import background from "../images/back_circle.png";
 import "./Select.css";
 import "../App.css";
 import card from "../images/짝맞추기.png";

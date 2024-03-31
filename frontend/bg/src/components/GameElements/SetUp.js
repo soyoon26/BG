@@ -1,6 +1,5 @@
 //게임 단계 설정
-import setup_back from "../../images/setup_background.png";
-import { Link, useLocation } from "react-router-dom";
+import setup_back from "../../images/back_circle.png";
 import SelectMenu from "../Button/SelectMenu";
 import "./SetUp.css";
 const SetUp = ({ next }) => {

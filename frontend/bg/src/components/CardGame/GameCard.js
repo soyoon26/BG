@@ -1,10 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import back from "../../images/back_ivory.png";
 import { getOne } from "../../api/cardApi";
 import StopMenu from "../Button/StopMenu";
 import "./GameCard.css";
 
 const GameCard = ({ nextCard, level }) => {
+  const backStyles = {
+    backgroundImage: `url(${back})`,
+    backgroundSize: "cover",
+    height: "100vh",
+  };
   const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -114,7 +120,7 @@ const GameCard = ({ nextCard, level }) => {
   }, [usedPictureCards, usedNumberCards]);
 
   return (
-    <div>
+    <div style={backStyles}>
       <div className="step-info">
         {level}단계 게임 <StopMenu />
       </div>

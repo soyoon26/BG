@@ -1,16 +1,22 @@
 import React, { useEffect, useState, useRef } from "react";
+import back from "../../images/back_ivory.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getOne } from "../../api/cardApi";
 import StopMenu from "../Button/StopMenu";
 import "./ReverseNumber.css";
 
 const ReverseNumber = ({ nextCard, level, usedNumber }) => {
+  const backStyles = {
+    backgroundImage: `url(${back})`,
+    backgroundSize: "cover",
+    height: "100vh",
+  };
   const pbCnt = level === 1 ? 4 : level === 2 ? 7 : 9; //스텝에 따른 문제수
   const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
   const [final, setFinal] = useState([]);
   const order = useRef(0);
   const score = useRef(100);
-  const reverseArr = usedNumber.reverse();
+  const reverseArr = [...usedNumber].reverse();
   console.log(reverseArr, "거꾸로");
   const fetchAllUrls = async (numberArray) => {
     const urlArray = [];
@@ -48,7 +54,7 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
   };
 
   return (
-    <div>
+    <div style={backStyles}>
       <div className="step-info">
         {level}단계 게임 / {order.current + 1}번째 문제 <StopMenu />
       </div>
