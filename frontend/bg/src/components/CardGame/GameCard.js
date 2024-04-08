@@ -20,7 +20,6 @@ const GameCard = ({ nextCard, level }) => {
   const [usedPictureCards, setUsedPictureCards] = useState([]); //사용된 그림 카드 배열
   const [usedNumberCards, setUsedNumberCards] = useState([]); //사용된 숫자 카드 배열
   const cnt = useRef(0);
-
   const pictureCards = [
     "가방",
     "강아지",
@@ -107,7 +106,7 @@ const GameCard = ({ nextCard, level }) => {
         fetchPictureCard();
         fetchNumberCard();
         cnt.current++;
-        console.log(cnt.current);
+        console.log(cnt.current, "현재 cnt");
       }, 3000);
       return () => clearInterval(intervalId);
     } else {
