@@ -223,7 +223,7 @@ const MapSearch = () => {
               키워드 :{" "}
               <input
                 type="text"
-                defaultValue="이태원 맛집"
+                defaultValue="부산 병원"
                 id="keyword"
                 size="15"
               ></input>

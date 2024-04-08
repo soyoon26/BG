@@ -2,7 +2,7 @@ import MapSearch from "../components/Map/MapSearch";
 const MapPage = () => {
   return (
     <div>
-      ddd <MapSearch />
+      <MapSearch />
     </div>
   );
 };

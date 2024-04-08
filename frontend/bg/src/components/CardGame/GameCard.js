@@ -126,10 +126,10 @@ const GameCard = ({ nextCard, level }) => {
       </div>
       <div className="card-container">
         {pictureCard && (
-          <img className="match-card" src={pictureCard} alt="그림카드" />
+          <img className="match-card1" src={pictureCard} alt="그림카드" />
         )}
         {numberCard && (
-          <img className="match-card" src={numberCard} alt="숫자카드" />
+          <img className="match-card1" src={numberCard} alt="숫자카드" />
         )}
       </div>
     </div>
