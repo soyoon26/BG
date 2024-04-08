@@ -1,8 +1,8 @@
-import MapCp from "../components/Map/Map";
+import MapSearch from "../components/Map/MapSearch";
 const MapPage = () => {
   return (
     <div>
-      ddd <MapCp />
+      ddd <MapSearch />
     </div>
   );
 };
