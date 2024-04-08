@@ -18,7 +18,7 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
   const [questionCard, setQuestionCard] = useState();
   const [answerCard, setAnswerCard] = useState();
   const [order, setOrder] = useState(0);
-
+  const score = useRef(100);
   const [opts, setOpts] = useState([]);
   const idx = Array.from({ length: questionCnt }, (_, index) => index);
   // const [question, setQuestion] = useState();
@@ -126,8 +126,13 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
       alert("정답입니다!");
       setOrder(order + 1);
       console.log(order, "order");
+      console.log(score.current);
+      if (order == questionCnt - 1) {
+        nextCard("score", level, usedPicture, score.current);
+      }
     } else {
-      alert("정답이 아닙니다.");
+      alert("틀렸습니다. 다시 골라주세요!");
+      score.current -= 5;
       console.log(ansIdx, index);
     }
   };

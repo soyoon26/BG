@@ -58,8 +58,8 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
       <div className="step-info">
         {level}단계 게임 / {order.current + 1}번째 문제 <StopMenu />
       </div>
-      <div className="card-container">
-        <div className="choices">
+      <div className="card-container-r">
+        <div className="choices-r">
           {final.slice(0, 5).map((card, index) => (
             <img
               key={index}
@@ -70,7 +70,7 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
             />
           ))}
         </div>
-        <div className="choices">
+        <div className="choices-r">
           {final.slice(5, 10).map((card, index) => (
             <img
               key={index}

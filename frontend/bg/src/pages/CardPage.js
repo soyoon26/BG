@@ -85,7 +85,9 @@ const CardPage = () => {
             usedNumber={usedNumber}
           />
         )}
-        {step === "score" && <Score />}
+        {step === "score" && (
+          <Score level={level} usedPicture={usedPicture} score={usedNumber} />
+        )}
       </main>
     </div>
   );

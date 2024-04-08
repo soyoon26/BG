@@ -7,7 +7,7 @@
   margin-left: 10%;
 }
 
-.card-container {
+.card-container-r {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -15,7 +15,7 @@
   height: 80vh;
 }
 
-.choices {
+.choices-r {
   display: flex;
   align-items: center;
 }

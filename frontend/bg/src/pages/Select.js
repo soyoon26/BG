@@ -12,15 +12,22 @@ const Select = () => {
   };
   return (
     <div style={backStyles}>
-      <div className=" flex justify-end p-5 font-large">
-        <Link to={"../about"}>
-          <button className="font3 bg-red-400 text-white p-3 mt-1 rounded-lg">
-            About
-          </button>
-        </Link>
+      <div className="btn">
+        <div className="btns flex justify-end p-5 font-large">
+          <Link to={"../about"}>
+            <button className="font3 bg-red-500 text-white p-3 mt-1 ml-3 rounded-lg">
+              사이트 정보
+            </button>
+          </Link>
+          <Link to={"../map"}>
+            <button className="font3 bg-red-500 text-white p-3 mt-1 ml-3 rounded-lg">
+              병원 지도찾기
+            </button>
+          </Link>
+        </div>
       </div>
       {/* 클릭시 추가적 로딩 */}
-      <div className="select-txt font3-sub mt-1">게임을 선택해주세요!</div>
+      <div className="select-txt font3-sub ">게임을 선택해주세요!</div>
       <div className="image-container">
         <div className="game-option text-4xl">
           <Link to={{ pathname: "../game/card" }}>

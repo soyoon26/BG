@@ -63,7 +63,7 @@ const GameNumber = ({ nextCard, level }) => {
       <div className="step-info">
         {level}단계 게임 <StopMenu />
       </div>
-      <div className="card-container">
+      <div className="card-container-g">
         {numberCard && (
           <img className="match-card" src={numberCard} alt="숫자카드" />
         )}
