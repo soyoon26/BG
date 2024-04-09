@@ -14,7 +14,7 @@ const MapPage = () => {
         <div className="map-txt">
           전문적인 진단을 받고 싶다면 가까운 병원을 검색해보아요 🏥
         </div>
-        <div className="select-container">
+        <div className="select-container-m">
           <SelectMenu />
         </div>
         <MapSearch />
