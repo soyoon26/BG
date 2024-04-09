@@ -13,19 +13,20 @@ const Score = ({ level, score }) => {
     margin: 0,
   };
   console.log(score, "점수확인");
+  const finalScore = score < 0 ? 0 : score;
   return (
     <div className="parent-container" style={backStyles}>
       <div className="circle">
-        <div className="score-container">
+        <div className="score-container-s">
           당신의 점수는
           <br />
           <div className="container">
-            <div className="score-text">{score}점</div>
+            <div className="score-text">{finalScore}점</div>
             입니다.
             <br />
           </div>
         </div>
-        <div className="select-container">
+        <div className="select-container-s">
           {/* <SelectMenu /> */}
           <div className="btns flex justify-end p-5 font-large">
             <Link to={"../about"}>

@@ -40,7 +40,7 @@ const GameNumber = ({ nextCard, level }) => {
     };
 
     let cardCnt = 4;
-    if (level === 2) cardCnt = 6;
+    if (level === 2) cardCnt = 7;
     else if (level === 3) cardCnt = 9; //문제수
 
     if (cnt.current < cardCnt) {
@@ -65,7 +65,7 @@ const GameNumber = ({ nextCard, level }) => {
       </div>
       <div className="card-container-g">
         {numberCard && (
-          <img className="match-card" src={numberCard} alt="숫자카드" />
+          <img className="match-card-n" src={numberCard} alt="숫자카드" />
         )}
       </div>
     </div>
