@@ -1,0 +1,27 @@
+@import "../styles/fonts.css";
+
+.map-txt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Radio", sans-serif;
+  color: #6a3d36;
+  text-shadow: 2px 2px 2px white;
+  font-size: 3vw;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+.map-container {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.select-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

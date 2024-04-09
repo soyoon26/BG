@@ -13,7 +13,7 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
   };
 
   const [ansIdx, setAnsIdx] = useState();
-  const questionCnt = level === 1 ? 4 : level === 2 ? 7 : 9; //스텝에 따른 문제수
+  const questionCnt = level === 1 ? 4 : level === 2 ? 6 : 9; //스텝에 따른 문제수
   const questionKind = [usedPicture, usedNumber];
   const [questionCard, setQuestionCard] = useState();
   const [answerCard, setAnswerCard] = useState();
