@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain; //보안필터 정의(인증, 권한부여, 인가 등)
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.config.http.SessionCreationPolicy; //세션생성정책 정의
 import org.springframework.security.crypto.password.PasswordEncoder; //비밀번호 암호화
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; //BCrypt 비밀번호 해시화
@@ -13,6 +14,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.zerock.bgapi.security.handler.APILoginSuccess;
+import org.zerock.bgapi.security.handler.filter.JWTCheckFilter;
 import org.zerock.bgapi.security.handler.APILoginFail;
 
 import lombok.RequiredArgsConstructor;
@@ -37,6 +39,8 @@ public class CustomSecurityConfig {
             config.successHandler(new APILoginSuccess());
             config.failureHandler(new APILoginFail());
         });
+        http.addFilterBefore(new JWTCheckFilter(),UsernamePasswordAuthenticationFilter.class); //JWT 체크
+
         return http.build();
     }
     @Bean
