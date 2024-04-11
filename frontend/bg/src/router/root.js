@@ -15,6 +15,7 @@ const Score = lazy(() => import("../components/GameElements/Score"));
 const CardPage = lazy(() => import("../pages/CardPage"));
 const NumberPage = lazy(() => import("../pages/NumberPage"));
 const MapPage = lazy(() => import("../pages/MapPage"));
+const SignUpPage = lazy(() => import("../pages/SignUpPage"));
 
 const root = createBrowserRouter([
   {
@@ -106,6 +107,14 @@ const root = createBrowserRouter([
     element: (
       <Suspense fallback={Loading}>
         <MapPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "signup",
+    element: (
+      <Suspense fallback={Loading}>
+        <SignUpPage />
       </Suspense>
     ),
   },
