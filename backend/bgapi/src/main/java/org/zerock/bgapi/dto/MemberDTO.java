@@ -30,7 +30,7 @@ public class MemberDTO extends User{
         this.roleNames= roleNames;
     }
     public Map<String, Object> getClaims(){
-        // 현재 사용자 전보를 Map타입으로 반환(JWT문자열 생성시 사용)
+        // 현재 사용자 정보를 Map타입으로 반환(JWT문자열 생성시 사용)
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("email", email);
         dataMap.put("pw",pw);
