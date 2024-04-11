@@ -1,5 +1,7 @@
 package org.zerock.bgapi.security.filter;
 import java.io.IOException;
+
+
 import java.io.PrintWriter;
 import java.util.Map;
 
@@ -8,6 +10,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.zerock.bgapi.util.JWT;
 
 import com.google.gson.Gson;
+
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -39,6 +42,8 @@ public class JWTCheckFilter extends OncePerRequestFilter{
     //}
 
     @Override
+
+
     protected void doFilterInternal(HttpServletRequest request,HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         log.info("--------------JWTCheckFilter");
         
@@ -64,6 +69,7 @@ public class JWTCheckFilter extends OncePerRequestFilter{
             printWriter.println(msg);
             printWriter.close();
         }
+
         filterChain.doFilter(request, response); 
 
     }
