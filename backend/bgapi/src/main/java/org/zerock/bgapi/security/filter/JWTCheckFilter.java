@@ -1,4 +1,4 @@
-package org.zerock.bgapi.security.handler.filter;
+package org.zerock.bgapi.security.filter;
 import java.io.IOException;
 
 import org.glassfish.jaxb.core.annotation.OverrideAnnotationOf;
