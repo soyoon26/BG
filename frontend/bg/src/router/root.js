@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react";
 
 const { createBrowserRouter } = require("react-router-dom");
+import guestbookRouter from "./guestbookRouter";
 
 const Loading = <div>Loading...</div>; //지연로딩, 필요한 순간까지 컴포넌트를 메모리상으로 올리지 않도록
 const Main = lazy(() => import("../pages/MainPage"));
@@ -16,6 +17,7 @@ const CardPage = lazy(() => import("../pages/CardPage"));
 const NumberPage = lazy(() => import("../pages/NumberPage"));
 const MapPage = lazy(() => import("../pages/MapPage"));
 const SignUpPage = lazy(() => import("../pages/SignUpPage"));
+const GuestIndex = lazy(() => import("../pages/IndexPage"));
 
 const root = createBrowserRouter([
   {
@@ -115,6 +117,14 @@ const root = createBrowserRouter([
     element: (
       <Suspense fallback={Loading}>
         <SignUpPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "guestbook",
+    element: (
+      <Suspense fallback={Loading}>
+        <GuestIndex />
       </Suspense>
     ),
   },
