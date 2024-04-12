@@ -4,8 +4,8 @@ export const API_SERVER_CARD = "http://localhost:8080";
 
 const prefixBook = `${API_SERVER_CARD}/api/questbook/`;
 
-export const getBook = async (tno) => {
-  const res = await axios.get(`${prefixBook}/${tno}`);
+export const getBook = async (no) => {
+  const res = await axios.get(`${prefixBook}/${no}`);
   return res.data;
 };
 
@@ -15,4 +15,13 @@ export const getList = async (pageParam) => {
     params: { page: page, size: size },
   });
   return res.data;
+};
+
+export const deleteOne = async (no) => {
+  const res = await axios.delete(`${prefixBook}/${no}`);
+  return res.data;
+};
+
+export const putOne = async (guestbook) => {
+  const res = await axios.put(`${prefixBook}/${guestbook.no}`);
 };
