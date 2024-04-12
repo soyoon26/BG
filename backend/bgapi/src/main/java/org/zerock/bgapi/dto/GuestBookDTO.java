@@ -18,5 +18,5 @@ public class GuestBookDTO {
     private String writer;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate dueDate;
+    private LocalDate date;
 }

@@ -18,7 +18,7 @@ public class GuestBook {
     private Long no;
     private String content;
     private String writer;
-    private LocalDate dueDate;
+    private LocalDate date;
 
     public void changeContent(String content){
         this.content = content;

@@ -26,7 +26,7 @@ public class GuestBookRepositoryTests {
         for (int i = 1; i <=12; i++){
             GuestBook guestbook = GuestBook.builder()
             .content("안녕하세요" + i)
-            .dueDate(LocalDate.of(2024,02,10))
+            .date(LocalDate.of(2024,02,10))
             .writer("사용자")
             .build();
 

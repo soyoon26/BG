@@ -5,7 +5,7 @@ const initState = {
   no: 0,
   title: "",
   writer: "",
-  dueDate: null,
+  Date: null,
 };
 const Read = (no) => {
   const [book, setBook] = useState(initState); //사용전
