@@ -7,9 +7,3 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import Read from "../components/GuestBook/Read";
-
-// const GuestBookPage () => {
-//     const moveToList = useCallback(()=>{
-//         Navigate({pathname:`/`})
-//     })
-// }
