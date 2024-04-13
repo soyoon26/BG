@@ -1,7 +1,7 @@
-import { Suspense, lazy } from "react";
+import { Children, Suspense, lazy } from "react";
+import guestbookRouter from "./guestbookRouter";
 
 const { createBrowserRouter } = require("react-router-dom");
-import guestbookRouter from "./guestbookRouter";
 
 const Loading = <div>Loading...</div>; //지연로딩, 필요한 순간까지 컴포넌트를 메모리상으로 올리지 않도록
 const Main = lazy(() => import("../pages/MainPage"));
@@ -17,7 +17,8 @@ const CardPage = lazy(() => import("../pages/CardPage"));
 const NumberPage = lazy(() => import("../pages/NumberPage"));
 const MapPage = lazy(() => import("../pages/MapPage"));
 const SignUpPage = lazy(() => import("../pages/SignUpPage"));
-const GuestIndex = lazy(() => import("../pages/IndexPage"));
+const GuestIndex = lazy(() => import("../pages/guestbook/IndexPage"));
+const GuestList = lazy(() => import("../pages/guestbook/ListPage"));
 
 const root = createBrowserRouter([
   {
@@ -127,6 +128,7 @@ const root = createBrowserRouter([
         <GuestIndex />
       </Suspense>
     ),
+    children: guestbookRouter(),
   },
 ]);
 //어떤 컴포넌트를 보여줄 것인지 결정하는 역할
