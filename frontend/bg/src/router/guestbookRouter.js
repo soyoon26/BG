@@ -5,6 +5,7 @@ const Loading = <div>Loading..</div>;
 const GuestList = lazy(() => import("../pages/guestbook/ListPage"));
 const GuestRead = lazy(() => import("../pages/guestbook/ReadPage"));
 const GuestAdd = lazy(() => import("../pages/guestbook/AddPage"));
+const GuestModify = lazy(() => import("../pages/guestbook/ModifyPage"));
 
 const guestbookRouter = () => {
   return [
@@ -33,6 +34,14 @@ const guestbookRouter = () => {
       element: (
         <Suspense fallback={Loading}>
           <GuestAdd />
+        </Suspense>
+      ),
+    },
+    {
+      path: "modify/:no",
+      element: (
+        <Suspense fallback={Loading}>
+          <GuestModify />
         </Suspense>
       ),
     },
