@@ -5,7 +5,7 @@ const initState = {
   no: 0,
   title: "",
   writer: "",
-  Date: null,
+  date: null,
 };
 const Read = ({ no }) => {
   const [book, setBook] = useState(initState); //사용전
@@ -15,7 +15,20 @@ const Read = ({ no }) => {
       setBook(data);
     });
   }, [no]);
-  return <div></div>;
+  return (
+    <div>
+      {makeDiv("No", book.no)}
+      {makeDiv("Writer", book.writer)}
+      {makeDiv("Content", book.content)}
+      {makeDiv("Date", book.date)}
+    </div>
+  );
 };
 
+const makeDiv = (title, value) => (
+  <div>
+    {title}
+    {value}
+  </div>
+);
 export default Read;
