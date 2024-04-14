@@ -18,9 +18,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
 
-@Log4j2
+//@Log4j2
 
-public class JWTCheckFilter extends OncePerRequestFilter{
+//public class JWTCheckFilter extends OncePerRequestFilter{
     // @Override
     // protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
     //     if (request.getMethod().equals("OPTIONS")) {
@@ -41,11 +41,11 @@ public class JWTCheckFilter extends OncePerRequestFilter{
        // return false;
     //}
 
-    @Override
+    //@Override
 
 
-    protected void doFilterInternal(HttpServletRequest request,HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        log.info("--------------JWTCheckFilter");
+    //protected void doFilterInternal(HttpServletRequest request,HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        //log.info("--------------JWTCheckFilter");
         
     //     String authHeaderStr = request.getHeader("Authorization");
 
@@ -72,7 +72,7 @@ public class JWTCheckFilter extends OncePerRequestFilter{
 
     //     filterChain.doFilter(request, response); 
 
-    }
+    //}
 
 
-}
+//}

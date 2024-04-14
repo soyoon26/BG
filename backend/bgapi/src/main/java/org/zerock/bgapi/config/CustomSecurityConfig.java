@@ -14,7 +14,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.zerock.bgapi.security.handler.APILoginSuccess;
-import org.zerock.bgapi.security.filter.JWTCheckFilter;
+//import org.zerock.bgapi.security.filter.JWTCheckFilter;
 import org.zerock.bgapi.security.handler.APILoginFail;
 
 import lombok.RequiredArgsConstructor;
@@ -39,7 +39,7 @@ public class CustomSecurityConfig {
             config.successHandler(new APILoginSuccess());
             config.failureHandler(new APILoginFail());
         });
-        http.addFilterBefore(new JWTCheckFilter(),UsernamePasswordAuthenticationFilter.class); //JWT 체크
+        //http.addFilterBefore(new JWTCheckFilter(),UsernamePasswordAuthenticationFilter.class); //JWT 체크
 
         return http.build();
     }
