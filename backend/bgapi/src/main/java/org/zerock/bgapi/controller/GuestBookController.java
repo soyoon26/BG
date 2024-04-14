@@ -47,4 +47,11 @@ public class GuestBookController {
         service.modify(guestBookDTO);
         return Map.of("RESULT", "SUCCESS");
     }
+
+    @DeleteMapping("/{no}")
+    public Map<String,String> remove (@PathVariable(name="no") Long no) {
+        log.info("Remove: " +no);
+        service.remove(no);
+        return Map.of("RESULT","SUCCESS");
+    } 
 }
