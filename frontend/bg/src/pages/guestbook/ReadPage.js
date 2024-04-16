@@ -5,6 +5,7 @@ import {
   useParams,
   useNavigate,
 } from "react-router-dom";
+import Read from "../../components/GuestBook/Read";
 
 const ReadPage = () => {
   const { no } = useParams();
@@ -30,6 +31,9 @@ const ReadPage = () => {
       <button onClick={() => toModify(12)}>TestModufy</button>
       <button onClick={() => toList()}>TestList</button>
       <div>sasdad</div>
+      <div>
+        <Read no={no} />
+      </div>
     </div>
   );
 };
