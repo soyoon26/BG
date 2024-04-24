@@ -27,3 +27,8 @@ export const deleteOne = async (no) => {
 export const putOne = async (guestbook) => {
   const res = await axios.put(`${prefixBook}/${guestbook.no}`);
 };
+
+export const postAdd = async (gueatbook) => {
+  const res = await axios.post(`${prefixBook}/`, gueatbook);
+  return res.data;
+};
