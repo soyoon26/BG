@@ -1,4 +1,4 @@
-import Add from "../../components/GuestBook/Add";
+import Add from "../../components/guestbook/Add";
 
 const AddPage = () => {
   return (

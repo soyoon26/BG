@@ -5,7 +5,7 @@ import {
   useParams,
   useNavigate,
 } from "react-router-dom";
-import Read from "../../components/GuestBook/Read";
+import Read from "../../components/guestbook/Read";
 
 const ReadPage = () => {
   const { no } = useParams();
