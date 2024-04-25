@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { postAdd } from "../../api/guestBookApi";
 import Modal from "../Common/Modal";
+import "./Add.css";
 const today = new Date();
 const initState = {
+  title: "",
   content: "",
   writer: "",
   date: today.toISOString().substring(0, 10),
@@ -37,22 +39,43 @@ const Add = () => {
       ) : (
         <></>
       )}
-      <div>방명록</div>
-      <input
-        name="content"
-        type={"text"}
-        value={guestBook.content}
-        onChange={handleChange}
-      ></input>
-      <input
-        name="writer"
-        type={"text"}
-        value={guestBook.writer}
-        onChange={handleChange}
-      ></input>
-      <button type="button" onClick={handleClickAdd}>
-        ADD
-      </button>
+      <div className="g-container">
+        방명록
+        <div>
+          제목:
+          <input
+            className="g-title"
+            name="title"
+            type={"text"}
+            value={guestBook.title}
+            onChange={handleChange}
+          ></input>
+        </div>
+        <div>
+          내용:
+          <textarea
+            className="g-content"
+            name="content"
+            type={"text"}
+            value={guestBook.content}
+            onChange={handleChange}
+          ></textarea>
+        </div>
+        <div>
+          작성자:
+          <input
+            name="writer"
+            type={"text"}
+            value={guestBook.writer}
+            onChange={handleChange}
+          ></input>
+        </div>
+        <div>
+          <button type="button" onClick={handleClickAdd}>
+            ADD
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

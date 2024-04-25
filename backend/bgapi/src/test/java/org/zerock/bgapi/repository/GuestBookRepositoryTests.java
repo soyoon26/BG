@@ -23,8 +23,9 @@ public class GuestBookRepositoryTests {
 
     @Test
     public void testInsert() {
-        for (int i = 1; i <=12; i++){
+        for (int i = 1; i <=1; i++){
             GuestBook guestbook = GuestBook.builder()
+            .title("이 사이트 좋아요"+i)
             .content("안녕하세요" + i)
             .date(LocalDate.of(2024,02,10))
             .writer("사용자")
