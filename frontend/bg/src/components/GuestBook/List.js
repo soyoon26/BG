@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getList } from "../../api/guestBookApi";
 import useCustomMove from "../../hooks/useCustomMove";
 import Page from "./Page";
-
+import "./List.css";
 const initState = {
   dtoList: [],
   pageNumList: [],
@@ -38,7 +38,7 @@ const List = () => {
                 {guestbook.no}
               </div>
               <div className="text-1xl m-1 p-2 w-8/12 font-extrabold">
-                {guestbook.content}
+                {guestbook.title}
               </div>
               <div className="text-1xl m-1 p-2 w-2/10">{guestbook.writer}</div>
               <div className="text-1xl m-1 p-2 w-2/10">{guestbook.date}</div>

@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import background from "../../images/back_gb.png";
 import {
   createSearchParams,
   useSearchParams,
@@ -8,6 +9,11 @@ import {
 import Read from "../../components/guestbook/Read";
 
 const ReadPage = () => {
+  const backStyles = {
+    backgroundImage: `url(${background})`,
+    backgroundSize: "cover",
+    height: "100vh",
+  };
   const { no } = useParams();
   const navigate = useNavigate();
   const [queryParams] = useSearchParams();
@@ -26,11 +32,9 @@ const ReadPage = () => {
     navigate({ pathname: `guestbook/list`, search: queryStr });
   }, [page, size]);
   return (
-    <div>
+    <div style={backStyles}>
       read Page {no}
-      <button onClick={() => toModify(12)}>TestModufy</button>
       <button onClick={() => toList()}>TestList</button>
-      <div>sasdad</div>
       <div>
         <Read no={no} />
       </div>

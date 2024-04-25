@@ -1,6 +1,7 @@
+import "./Page.css";
 const Page = ({ serverData, movePage }) => {
   return (
-    <div>
+    <div className="page">
       {serverData.prev && (
         <div onClick={() => movePage({ page: serverData.prevPage })}>Prev </div>
       )}

@@ -16,6 +16,7 @@ public class GuestBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //고유한 PK, 자동 생성 
     private Long no;
+    private String title;
     private String content;
     private String writer;
     private LocalDate date;

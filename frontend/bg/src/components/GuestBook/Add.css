@@ -1,0 +1,16 @@
+@import "../../styles/fonts.css";
+
+body {
+  font-family: "Radio", snas-serif;
+  font-size: xx-large;
+}
+
+.g-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.g-content {
+  margin-bottom: 10%;
+}
