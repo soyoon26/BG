@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import List from "../../components/guestbook/List";
 import background from "../../images/back_gb.png";
+
 import "./ListPage.css";
 const ListPage = () => {
   const backStyles = {
@@ -16,7 +17,6 @@ const ListPage = () => {
       <div className="list-container">
         <List />
       </div>
-      ;
     </div>
   );
 };
