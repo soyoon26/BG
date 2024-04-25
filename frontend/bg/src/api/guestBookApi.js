@@ -16,6 +16,7 @@ export const getList = async (pageParam) => {
   const res = await axios.get(`${prefixBook}/list`, {
     params: { page: page, size: size },
   });
+  console.log("api", res.data);
   return res.data;
 };
 

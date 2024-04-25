@@ -24,10 +24,9 @@ const Read = ({ no }) => {
     <div>
       {makeDiv(book.no, "번 글")}
       <div>작성자: {book.writer}</div>
-      {makeDiv("작성자", book.writer)}
-      {makeDiv("제목", book.title)}
-      {makeDiv("내용", book.content)}
-      {makeDiv("날짜", book.date)}
+      <div>작성 날짜: {book.date}</div>
+      <div>제목: {book.title}</div>
+      <div>내용: {book.content}</div>
 
       <button onClick={() => moveToList()}>list</button>
     </div>

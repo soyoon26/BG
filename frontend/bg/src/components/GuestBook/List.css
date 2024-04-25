@@ -3,3 +3,7 @@
 body {
   font-family: "Radio", snas-serif;
 }
+.l-container {
+  justify-content: center;
+  align-items: center;
+}
