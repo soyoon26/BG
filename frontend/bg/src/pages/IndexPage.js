@@ -1,5 +1,11 @@
-import Read from "../components/GuestBook/Read";
+import Read from "../components/guestbook/Read";
+import background from "../../images/back_gb.png";
 const IndexPage = () => {
+  const backStyles = {
+    backgroundImage: `url(${background})`,
+    backgroundSize: "cover",
+    height: "100vh",
+  };
   return (
     <div>
       <div>List</div>

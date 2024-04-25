@@ -1,7 +1,14 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { useCallback } from "react";
+import background from "../../images/back_gb.png";
 
 const IndexPage = () => {
+  const backStyles = {
+    backgroundImage: `url(${background})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    height: "100vh",
+  };
   const navigate = useNavigate();
   const handleClickList = useCallback(() => {
     navigate({ pathname: "list" });
@@ -13,11 +20,11 @@ const IndexPage = () => {
     navigate({ pathname: "read" });
   });
   return (
-    <div>
-      <Outlet />
-      <div onClick={handleClickList}> List</div>
+    <div style={backStyles}>
+      {/* <div onClick={handleClickList}> List</div>
       <div onClick={handleClickAdd}> Add</div>
-      <div onClick={handleClickRead}> Read</div>
+      <div onClick={handleClickRead}> Read</div> */}
+      <Outlet />
     </div>
   );
 };

@@ -29,14 +29,19 @@ const ReadPage = () => {
     [no, page, size]
   );
   const toList = useCallback(() => {
-    navigate({ pathname: `guestbook/list`, search: queryStr });
+    navigate({ pathname: `../../guestbook/list`, search: queryStr });
   }, [page, size]);
   return (
     <div style={backStyles}>
       <div className="read-container">
         <Read no={no} />
+        <button
+          className="l-btn bg-red-500 text-white p-1 m-3 rounded-lg"
+          onClick={() => toList()}
+        >
+          목록
+        </button>
       </div>
-      <button onClick={() => toList()}>TestList</button>
     </div>
   );
 };

@@ -5,7 +5,7 @@ const Page = ({ serverData, movePage }) => {
     <div className="page">
       {serverData.current != 1 ? (
         <div onClick={() => movePage({ page: serverData.current - 1 })}>
-          Prev{" "}
+          이전 페이지 &lt;
         </div>
       ) : (
         <></>
@@ -13,17 +13,22 @@ const Page = ({ serverData, movePage }) => {
       {serverData.pageNumList.map((pageNum) => (
         <div
           key={pageNum}
-          className={`m-2 ${
+          className={`m-2 rounded ${
             serverData.current === pageNum ? "bg-yellow-500" : "bg-red-300"
           }`}
           onClick={() => movePage({ page: pageNum })}
+          style={{
+            textDecoration: "underline",
+            width: "50px",
+            textAlign: "center",
+          }}
         >
           {pageNum}
         </div>
       ))}
       {serverData.current < serverData.totalPage ? (
         <div onClick={() => movePage({ page: serverData.current + 1 })}>
-          Next
+          &gt; 다음 페이지
         </div>
       ) : (
         <></>
