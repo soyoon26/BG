@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { getList } from "../../api/guestBookApi";
 import useCustomMove from "../../hooks/useCustomMove";
 import Page from "./Page";
@@ -19,6 +20,10 @@ const initState = {
 const List = () => {
   const { page, size, moveToList } = useCustomMove();
   const [serverData, setServerData] = useState(initState);
+  const navigate = useNavigate();
+  const handleClickRead = useCallback((no) => {
+    navigate({ pathname: `../read/${no}` });
+  });
   useEffect(() => {
     getList({ page, size }).then((data) => {
       console.log(data, "data 확인");
@@ -35,7 +40,10 @@ const List = () => {
           >
             <div className="flex">
               <div className=" text-2xl p-2 w-1/12">{guestbook.no}.</div>
-              <div className="text-2xl m-1 p-2 w-7/12 font-extrabold">
+              <div
+                className="text-2xl m-1 p-2 w-7/12 font-extrabold"
+                onClick={() => handleClickRead(guestbook.no)}
+              >
                 {guestbook.title}
               </div>
               <div className="text-xl m-1 p-2 w-2/12">{guestbook.writer}</div>

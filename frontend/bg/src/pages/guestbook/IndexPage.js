@@ -14,10 +14,10 @@ const IndexPage = () => {
   });
   return (
     <div>
-      <Outlet />
-      <div onClick={handleClickList}> List</div>
+      {/* <div onClick={handleClickList}> List</div>
       <div onClick={handleClickAdd}> Add</div>
-      <div onClick={handleClickRead}> Read</div>
+      <div onClick={handleClickRead}> Read</div> */}
+      <Outlet />
     </div>
   );
 };

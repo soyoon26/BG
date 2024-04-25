@@ -3,4 +3,10 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  flex-direction: column;
+}
+
+.l-btn {
+  width: 100px;
+  margin-left: 50%;
 }

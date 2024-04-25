@@ -30,8 +30,6 @@ const Read = ({ no }) => {
       <div className="">작성자: {book.writer}</div>
       <div className="mb-5">작성 날짜: {book.date}</div>
       <div>내용: {book.content}</div>
-
-      <button onClick={() => moveToList()}>list</button>
     </div>
   );
 };
