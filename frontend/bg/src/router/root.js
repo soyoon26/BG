@@ -125,7 +125,7 @@ const root = createBrowserRouter([
     path: "guestbook",
     element: (
       <Suspense fallback={Loading}>
-        <GuestList />
+        <GuestIndex />
       </Suspense>
     ),
     children: guestbookRouter(),
