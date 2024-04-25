@@ -3,3 +3,12 @@
 body {
   font-family: "Radio", snas-serif;
 }
+.l-container {
+  justify-content: center;
+  align-items: center;
+}
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -7,7 +7,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Read from "../../components/guestbook/Read";
-
+import "./ReadPage.css";
 const ReadPage = () => {
   const backStyles = {
     backgroundImage: `url(${background})`,
@@ -33,11 +33,10 @@ const ReadPage = () => {
   }, [page, size]);
   return (
     <div style={backStyles}>
-      read Page {no}
-      <button onClick={() => toList()}>TestList</button>
-      <div>
+      <div className="read-container">
         <Read no={no} />
       </div>
+      <button onClick={() => toList()}>TestList</button>
     </div>
   );
 };
