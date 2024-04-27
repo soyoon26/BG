@@ -22,14 +22,19 @@ const Read = ({ no }) => {
   }, [no]);
   return (
     <div
-      className="w-3/5 p-2 m-2 rounded shadow-md "
+      className="w-3/5 p-6 m-2 rounded shadow-md "
       style={{ backgroundColor: "rgb(255,228,225)" }}
     >
       {makeDiv("<", book.no, "번 글>")}
       <div className="title font-extrabold">제목: {book.title}</div>
       <div className="">작성자: {book.writer}</div>
       <div className="mb-5">작성 날짜: {book.date}</div>
-      <div>내용: {book.content}</div>
+      <div
+        className="rounded p-5 m-3"
+        style={{ backgroundColor: "rgb(280,248,225)" }}
+      >
+        {book.content}
+      </div>
     </div>
   );
 };
