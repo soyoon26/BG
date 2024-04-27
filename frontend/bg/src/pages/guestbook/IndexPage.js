@@ -20,7 +20,7 @@ const IndexPage = () => {
     navigate({ pathname: "read" });
   });
   return (
-    <div style={backStyles}>
+    <div>
       {/* <div onClick={handleClickList}> List</div>
       <div onClick={handleClickAdd}> Add</div>
       <div onClick={handleClickRead}> Read</div> */}
