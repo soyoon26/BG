@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import List from "../../components/guestbook/List";
 import background from "../../images/back_gb.png";
 import g_logo from "../../images/g_logo.png";
-
+import MenuBar from "../../components/Common/MenuBar";
 import "./ListPage.css";
 const ListPage = () => {
   const backStyles = {
@@ -16,6 +16,7 @@ const ListPage = () => {
   const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
   return (
     <div style={backStyles}>
+      <MenuBar />
       <div className="g_logo-container">
         <img src={g_logo} alt="Guestbook Logo" className="guestbook-logo" />
       </div>

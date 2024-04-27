@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 import background from "../../images/back_gb.png";
-
+import SelectMenu from "../../components/Button/SelectMenu";
 const IndexPage = () => {
   const backStyles = {
     backgroundImage: `url(${background})`,

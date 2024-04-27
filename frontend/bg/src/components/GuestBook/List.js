@@ -37,12 +37,14 @@ const List = () => {
           <div
             key={guestbook.no}
             className="w-3/5 min-w-[1000px] p-2 m-2 rounded shadow-md"
+            style={{ backgroundColor: "rgb(255,228,225)" }}
           >
             <div className="flex">
               <div className=" text-2xl p-2 w-1/12">{guestbook.no}.</div>
               <div
                 className="text-2xl m-1 p-2 w-7/12 font-extrabold"
                 onClick={() => handleClickRead(guestbook.no)}
+                style={{ cursor: "pointer" }}
               >
                 {guestbook.title}
               </div>
