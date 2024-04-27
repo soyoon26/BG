@@ -7,7 +7,8 @@ const ListPage = () => {
   const backStyles = {
     backgroundImage: `url(${background})`,
     backgroundSize: "cover",
-    height: "100vh",
+    minHeight: "100vh",
+    width: "100%",
   };
   const [queryParams] = useSearchParams();
   const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
