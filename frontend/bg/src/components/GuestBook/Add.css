@@ -11,6 +11,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.g-title {
+  margin-top: 50%;
+}
 .g-content {
   margin-bottom: 10%;
+  width: 100vh;
+  height: 30vh;
 }

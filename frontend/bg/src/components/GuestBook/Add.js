@@ -40,11 +40,10 @@ const Add = () => {
         <></>
       )}
       <div className="g-container">
-        방명록
         <div>
           제목:
           <input
-            className="g-title"
+            className="g-title mt-5"
             name="title"
             type={"text"}
             value={guestBook.title}
@@ -52,7 +51,17 @@ const Add = () => {
           ></input>
         </div>
         <div>
-          내용:
+          작성자:
+          <input
+            className="mt-5"
+            name="writer"
+            type={"text"}
+            value={guestBook.writer}
+            onChange={handleChange}
+          ></input>
+        </div>
+        <div>
+          <div>내용:</div>
           <textarea
             className="g-content"
             name="content"
@@ -62,17 +71,8 @@ const Add = () => {
           ></textarea>
         </div>
         <div>
-          작성자:
-          <input
-            name="writer"
-            type={"text"}
-            value={guestBook.writer}
-            onChange={handleChange}
-          ></input>
-        </div>
-        <div>
           <button type="button" onClick={handleClickAdd}>
-            ADD
+            등록
           </button>
         </div>
       </div>
