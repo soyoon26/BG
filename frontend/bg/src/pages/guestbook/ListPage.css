@@ -4,3 +4,14 @@
   align-items: center;
   position: relative;
 }
+
+.g_logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.guestbook-logo {
+  width: 17%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
