@@ -31,7 +31,7 @@ const Read = ({ no }) => {
       <div className="mb-5">작성 날짜: {book.date}</div>
       <div
         className="rounded p-5 m-3"
-        style={{ backgroundColor: "rgb(280,248,225)" }}
+        style={{ backgroundColor: "rgb(270,270,225)" }}
       >
         {book.content}
       </div>
