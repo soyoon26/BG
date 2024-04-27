@@ -43,6 +43,7 @@ const List = () => {
               <div
                 className="text-2xl m-1 p-2 w-7/12 font-extrabold"
                 onClick={() => handleClickRead(guestbook.no)}
+                style={{ cursor: "pointer" }}
               >
                 {guestbook.title}
               </div>
