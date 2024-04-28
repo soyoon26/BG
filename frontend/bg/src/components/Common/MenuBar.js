@@ -25,7 +25,7 @@ const MenuBar = () => {
         {" "}
         게임 선택하기
       </div>
-      <div className="pt-3">|</div>
+      <div className="pt-3 text-2xl">|</div>
       <div
         className="p-3 text-2xl"
         onClick={handleClickAdd}
@@ -34,7 +34,7 @@ const MenuBar = () => {
         {" "}
         ADD
       </div>
-      <div className="pt-3">|</div>
+      <div className="pt-3 text-2xl">|</div>
       <div
         className="p-3 text-2xl"
         onClick={handleClickMap}
@@ -43,7 +43,7 @@ const MenuBar = () => {
         {" "}
         지도 병원 찾기
       </div>
-      <div className="pt-3">|</div>
+      <div className="pt-3 text-2xl">|</div>
       <div
         className="p-3 text-2xl"
         onClick={handleClickMap}

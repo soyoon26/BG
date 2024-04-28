@@ -16,7 +16,7 @@ const ListPage = () => {
   const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
   return (
     <div style={backStyles}>
-      <MenuBar />
+      {/* <MenuBar /> */}
       <div className="g_logo-container">
         <img src={g_logo} alt="Guestbook Logo" className="guestbook-logo" />
       </div>

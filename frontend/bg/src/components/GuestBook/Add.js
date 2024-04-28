@@ -53,14 +53,14 @@ const Add = () => {
         <div>
           작성자:
           <input
-            className="mt-5"
+            className="g-writer mt-5"
             name="writer"
             type={"text"}
             value={guestBook.writer}
             onChange={handleChange}
           ></input>
         </div>
-        <div>
+        <div className="mt-10">
           <div>내용:</div>
           <textarea
             className="g-content"
@@ -70,8 +70,12 @@ const Add = () => {
             onChange={handleChange}
           ></textarea>
         </div>
-        <div>
-          <button type="button" onClick={handleClickAdd}>
+        <div className="flex submit">
+          <button
+            className=" rounded bg-red-300 pl-4 pr-4 pt-1 pb-1 "
+            type="button"
+            onClick={handleClickAdd}
+          >
             등록
           </button>
         </div>
