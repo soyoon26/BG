@@ -4,3 +4,22 @@
   align-items: center;
   position: relative;
 }
+
+.g_logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.guestbook-logo {
+  width: 17%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.write {
+  margin-left: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
