@@ -13,10 +13,20 @@ body {
 }
 
 .g-title {
-  margin-top: 50%;
+  margin-top: 10%;
+  width: 95vh;
+}
+
+.g-writer {
+  width: 92vh;
 }
 .g-content {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   width: 100vh;
   height: 30vh;
+}
+
+.submit {
+  width: 100px;
+  margin-left: 40%;
 }
