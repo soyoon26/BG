@@ -6,8 +6,8 @@ const MenuBar = () => {
   const handleClickMain = useCallback(() => {
     navigate({ pathname: "../../select" });
   });
-  const handleClickAdd = useCallback(() => {
-    navigate({ pathname: "../add" });
+  const handleClickGuestBook = useCallback(() => {
+    navigate({ pathname: "../../guestbook" });
   });
   const handleClickMap = useCallback(() => {
     navigate({ pathname: "../../map" });
@@ -25,15 +25,17 @@ const MenuBar = () => {
         {" "}
         게임 선택하기
       </div>
+
       <div className="pt-3 text-2xl">|</div>
       <div
         className="p-3 text-2xl"
-        onClick={handleClickAdd}
+        onClick={handleClickGuestBook}
         style={{ cursor: "pointer" }}
       >
         {" "}
-        ADD
+        방명록
       </div>
+
       <div className="pt-3 text-2xl">|</div>
       <div
         className="p-3 text-2xl"
@@ -52,6 +54,7 @@ const MenuBar = () => {
         {" "}
         사이트 정보
       </div>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </div>
   );
 };
