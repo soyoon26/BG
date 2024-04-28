@@ -4,7 +4,10 @@ const Page = ({ serverData, movePage }) => {
   return (
     <div className="page">
       {serverData.current != 1 ? (
-        <div onClick={() => movePage({ page: serverData.current - 1 })}>
+        <div
+          style={{ cursor: "pointer" }}
+          onClick={() => movePage({ page: serverData.current - 1 })}
+        >
           이전 페이지 &lt;
         </div>
       ) : (
@@ -18,6 +21,7 @@ const Page = ({ serverData, movePage }) => {
           }`}
           onClick={() => movePage({ page: pageNum })}
           style={{
+            cursor: "pointer",
             textDecoration: "underline",
             width: "50px",
             textAlign: "center",
@@ -27,7 +31,10 @@ const Page = ({ serverData, movePage }) => {
         </div>
       ))}
       {serverData.current < serverData.totalPage ? (
-        <div onClick={() => movePage({ page: serverData.current + 1 })}>
+        <div
+          style={{ cursor: "pointer" }}
+          onClick={() => movePage({ page: serverData.current + 1 })}
+        >
           &gt; 다음 페이지
         </div>
       ) : (
