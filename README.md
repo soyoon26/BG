@@ -39,6 +39,17 @@
 ```
 #### 게임 화면
 
+![picture](assets/picture.gif)|![pictureAns](assets/pictureAns.gif)
+---|---|
+```
+그림과 숫자가 짝을 지어 나옵니다. 이후 그림과 숫자 중 랜덤으로 보기카드가 나오면 선택지에서 짝을 고르면 됩니다.
+```
+
+![number](assets/Number.gif)|![numberAns](assets/numberAns.gif)
+---|---|
+```
+숫자카드가 나옵니다. 이후 숫자카드가 나온 순서를 거꾸로 선택하면 됩니다.
+```
 #### 점수 화면
 
 #### 방명록 목록
