@@ -9,7 +9,7 @@ const Modal = ({ content, callbackFn }) => {
         }
       }}
     >
-      <div className="absolute bg-red-100 shadow dark:bg-grey-700 opacity-100 w-1/6 rounded mt-10 mb-10 px-6 min-w-[400px]">
+      <div className="absolute bg-red-100 shadow dark:bg-grey-700 opacity-100 w-1/6 rounded mt-10 mb-10 px-6 min-w-[500px]">
         <div className="alret justify-center bg-warnning-400 mt-6 mb-6">
           {content}
         </div>
