@@ -1,5 +1,6 @@
 import SelectMenu from "../components/Button/SelectMenu";
 import back from "../images/back_ivory.png";
+import MenuBar from "../components/Common/MenuBar";
 const AboutPage = () => {
   const backStyles = {
     backgroundImage: `url(${back})`,
@@ -8,30 +9,36 @@ const AboutPage = () => {
   };
   return (
     <div style={backStyles}>
-      <SelectMenu></SelectMenu>
-      <div className="font3 text-3xl text-center">
+      <MenuBar />
+
+      <div className="font3 text-3xl text-center mt-20">
         <br />
-        안녕하세요,
+        안녕하세요, '이상'입니다.
         <br />
-        저는 사고로 머리를 다친 후 병원에서 치료로 게임을 하다가
+        치매 환자, 뇌손상 환자, 학습 장애인, 발달 인지 장애인 등 인지기능 향상이
+        필요한 여러 사람들이
         <br />
-        모두가 체험해봤으면 좋겠다는 생각에 만들어 보았습니다.
-        <br />이 게임은 뇌를 재훈련하는 여러 방법을 교육하는 것입니다.
+        경제적이나 물리적 이유들로 쉽게 병원에 가 치료를 받을 수 없다는 사실을
+        깨닫고
         <br />
-        이를 통해 뇌는 기능을 회복할 수 있습니다.
+        부담없이 뇌를 훈련할 수 있도록 인지기능 향상 게임 체험 사이트를
+        만들었습니다.
         <br />
-        또한 환자에 대한 평가는 손상의 유형과 중증도를 파악하는 데 도움이
-        됩니다.
+        게임의 반복을 통해 뇌는 기능을 회복할 수 있습니다.
+        <br />
+        게임의 점수는 환자에 대한 평가로 손상의 유형과 중증도를 파악하는 데
+        도움이 됩니다.
         <br />
         앞으로 많은 게임들이 더 추가될 예정입니다.
         <br />
-        모두가 건강한 뇌를 갖게 되길 바라요. 감사합니다!
+        이 사이트를 디지털 치료제로 모두가 건강한 뇌를 갖게 되길 진심으로 바라며
+        개발했습니다. 감사합니다!
         <br />
         이만 총총.
         <br />
         <br />
         <br />
-        -For Everyone개발자 '이상'-
+        -For Everyone 개발자 '이상'-
         <br />
       </div>
     </div>
