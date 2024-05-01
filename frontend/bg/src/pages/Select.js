@@ -4,6 +4,7 @@ import "./Select.css";
 import "../App.css";
 import card from "../images/bearCard.png";
 import phone from "../images/phoneCard.png";
+import MenuBar from "../components/Common/MenuBar";
 const Select = () => {
   const backStyles = {
     backgroundImage: `url(${background})`,
@@ -12,22 +13,10 @@ const Select = () => {
   };
   return (
     <div style={backStyles}>
-      <div className="btn">
-        <div className="btns flex justify-end p-5 font-large">
-          <Link to={"../about"}>
-            <button className="font3 bg-red-500 text-white p-3 mt-1 ml-3 rounded-lg">
-              사이트 정보
-            </button>
-          </Link>
-          <Link to={"../map"}>
-            <button className="font3 bg-red-500 text-white p-3 mt-1 ml-3 rounded-lg">
-              병원 지도찾기
-            </button>
-          </Link>
-        </div>
-      </div>
+      <MenuBar />
+
       {/* 클릭시 추가적 로딩 */}
-      <div className="select-txt font3-sub ">게임을 선택해주세요!</div>
+      <div className="select-txt font3-sub mt-10">게임을 선택해주세요!</div>
       <div className="image-container">
         <div className="game-option text-4xl">
           <Link to={{ pathname: "../game/card" }}>
