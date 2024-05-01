@@ -10,7 +10,7 @@
 <br/>
  대한민국은 치매 환자 추정수가 100만명을 넘었으며 치매 전 단계인 경도인지장애 환자도 34만명이 넘는다. 이는 인간의 존엄성과 밀접한 관련이 있어 그 무엇보다 두려운 질병이다. 특히 돌보는 사람에게 피해를 준다는 인식이 있기에 본인들도 빨리 치료하고자 한다. 인지기능을 관리하는 것이 필요하나 실제 병원에서 받는 치료는 비용이 높아 주기적으로 받기 어려우며 거동이 불편한 경우 찾아가 치료를 받는 것에 무리가 있다.
 <br/>
- 이를 위해 인지 기능 향상을 위한 '디지털 치료제'를 만들었다. 뇌 기능이 계속 유지되도록 자극하는 훈련을 게임으로 구현했으며 게임 이후 병원을 가야겠다는 생각이 든다면 사용할 수 있는 병원 지도 검색을 추가하였다. 혼자라는 좌절감에 빠지지 않도록 다른 사람들의 발자국을 확인할 수 있는 방명록 페이지도 만들었다. 기존 인지치료와 달리 사용자 스스로 반복할 수 있고 시간, 공간, 인력 가용성 등 물리적 한계와 비용적 문제를 극복할 수 있다. 치매 환자 뿐만 아니라  뇌손상 환자, 학습 장애, 발달 인지 장애 아동 등도 사용하기 편하게 만들었다. 인지기능 향상은 우울 감소, 생활 만족도 상승 등 정서에도 좋은 영향을 주고 학습능력 증진, 생활 능력 향상으로 이어지기 때문에 나아가 사회 활동 참여 기회도 확대될 것으로 예상된다. 
+ 이를 위해 인지 기능 향상을 위한 '디지털 치료제'를 만들었다. 뇌 기능이 계속 유지되도록 자극하는 훈련을 게임으로 구현했으며 게임 이후 병원을 가야겠다는 생각이 든다면 사용할 수 있는 병원 지도 검색을 추가하였다. 혼자라는 좌절감에 빠지지 않도록 다른 사람들의 발자국을 확인할 수 있는 방명록 페이지도 만들었다. 쉬운 진행을 위해 누구든지 알아보기 쉽도록 큰 글씨로 설정하였고 단순하게 디자인하였다. 기존 인지치료와 달리 사용자 스스로 반복할 수 있고 시간, 공간, 인력 가용성 등 물리적 한계와 비용적 문제를 극복할 수 있다. 치매 환자 뿐만 아니라  뇌손상 환자, 학습 장애, 발달 인지 장애 아동 등도 사용하기 편하게 만들었다. 인지기능 향상은 우울 감소, 생활 만족도 상승 등 정서에도 좋은 영향을 주고 학습능력 증진, 생활 능력 향상으로 이어지기 때문에 나아가 사회 활동 참여 기회도 확대될 것으로 예상된다. 
  <br/>
  
 ### 🎈 서비스 기능
@@ -80,13 +80,16 @@
 
 
 ### 🛠 사용한 기술스택
+| 언어 | JavaScript, HTML, CSS, JAVA |
+| --- | --- |
+| 플랫폼 | FE: React , BE: Spring Boot |
+| DB | mariaDB |
 
-### 🗂 ERD
 
 
 
 ### 💻프로젝트 구조
-#### ▪ FE
+#### ▪ 프론트엔드
 ```
 📦src
  ┣ 📂api
@@ -94,34 +97,43 @@
  ┃ ┣ 📜guestBookApi.js
  ┃ ┗ 📜memberApi.js
  ┣ 📂components
- ┃ ┣ 📂Button
+ ┃ ┣ 📂button
  ┃ ┃ ┣ 📜Logo.js
  ┃ ┃ ┣ 📜SelectMenu.js
  ┃ ┃ ┣ 📜StartButton.css
  ┃ ┃ ┣ 📜StartButton.js
  ┃ ┃ ┗ 📜StopMenu.js
- ┃ ┣ 📂CardGame
+ ┃ ┣ 📂cardGame
  ┃ ┃ ┣ 📜GameCard.css
  ┃ ┃ ┣ 📜GameCard.js
  ┃ ┃ ┣ 📜GuessCard.css
  ┃ ┃ ┗ 📜GuessCard.js
- ┃ ┣ 📂GameElements
+ ┃ ┣ 📂common
+ ┃ ┃ ┣ 📜MenuBar.css
+ ┃ ┃ ┣ 📜MenuBar.js
+ ┃ ┃ ┣ 📜Modal.css
+ ┃ ┃ ┗ 📜Modal.js
+ ┃ ┣ 📂gameElements
  ┃ ┃ ┣ 📜HowTo.css
  ┃ ┃ ┣ 📜HowTo.js
  ┃ ┃ ┣ 📜Score.css
  ┃ ┃ ┣ 📜Score.js
  ┃ ┃ ┣ 📜SetUp.css
  ┃ ┃ ┗ 📜SetUp.js
- ┃ ┣ 📂GuestBook
+ ┃ ┣ 📂guestbook
+ ┃ ┃ ┣ 📜Add.css
  ┃ ┃ ┣ 📜Add.js
- ┃ ┃ ┣ 📜Index.js
+ ┃ ┃ ┣ 📜List.css
  ┃ ┃ ┣ 📜List.js
  ┃ ┃ ┣ 📜Modify.js
+ ┃ ┃ ┣ 📜Page.css
+ ┃ ┃ ┣ 📜Page.js
+ ┃ ┃ ┣ 📜Read.css
  ┃ ┃ ┗ 📜Read.js
- ┃ ┣ 📂Map
+ ┃ ┣ 📂map
  ┃ ┃ ┣ 📜MapSearch.css
  ┃ ┃ ┗ 📜MapSearch.js
- ┃ ┗ 📂NumberGame
+ ┃ ┗ 📂numberGame
  ┃ ┃ ┣ 📜GameNumber.css
  ┃ ┃ ┣ 📜GameNumber.js
  ┃ ┃ ┣ 📜ReverseNumber.css
@@ -131,25 +143,28 @@
  ┣ 📂images
  ┃ ┣ 📜back_check.png
  ┃ ┣ 📜back_circle.png
+ ┃ ┣ 📜back_gb.png
+ ┃ ┣ 📜back_gb_!.png
  ┃ ┣ 📜back_ivory.png
+ ┃ ┣ 📜g_logo.png
  ┃ ┣ 📜logo.png
  ┃ ┣ 📜setup_background_full.png
- ┃ ┣ 📜번호외우기.png
- ┃ ┗ 📜짝맞추기.png
+ ┃ ┣ 📜bearCard.png
+ ┃ ┗ 📜phoneCard.png
  ┣ 📂layouts
  ┃ ┗ 📜BasicLayout.js
  ┣ 📂pages
  ┃ ┣ 📂guestbook
  ┃ ┃ ┣ 📜AddPage.js
  ┃ ┃ ┣ 📜IndexPage.js
+ ┃ ┃ ┣ 📜ListPage.css
  ┃ ┃ ┣ 📜ListPage.js
  ┃ ┃ ┣ 📜ModifyPage.js
+ ┃ ┃ ┣ 📜ReadPage.css
  ┃ ┃ ┗ 📜ReadPage.js
  ┃ ┣ 📜AboutPage.js
  ┃ ┣ 📜CardPage.js
  ┃ ┣ 📜GameNumber.css
- ┃ ┣ 📜GameNumber1.js
- ┃ ┣ 📜GuestBookPage.js
  ┃ ┣ 📜IndexPage.js
  ┃ ┣ 📜MainPage.js
  ┃ ┣ 📜MapPage.css
@@ -175,7 +190,7 @@
  ┣ 📜setupTests.js
  ┗ 📜store.js
 ```
-#### ▪ BE
+#### ▪ 백엔드
 ```
 📦src
  ┣ 📂main
