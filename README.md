@@ -27,7 +27,8 @@
 - 사이트 정보 버튼과 병원 지도찾기 화면으로 이동할 수 있는 버튼이 있습니다.
 ```
 #### 게임 난이도 선택 화면
-![image](https://github.com/soyoon26/BG/assets/122415737/0f82f54e-6a96-4420-82b2-9b0f7271dbac)
+
+![setUp](assets/setUp.png)
 
 ```
 1,2, 3 단계 중 하나를 선택합니다.
