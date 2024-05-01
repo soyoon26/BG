@@ -8,8 +8,8 @@
   color: #6a3d36;
   text-shadow: 2px 2px 2px white;
   font-size: 3vw;
-  margin-top: 50px;
-  margin-bottom: 70px;
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 
 .map-container {
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 85vh;
 }
 
 .select-container-m {
