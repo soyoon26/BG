@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import background from "../images/back_circle.png";
 import "./Select.css";
 import "../App.css";
-import card from "../images/짝맞추기.png";
-import phone from "../images/번호외우기.png";
+import card from "../images/bearCard.png";
+import phone from "../images/phoneCard.png";
 const Select = () => {
   const backStyles = {
     backgroundImage: `url(${background})`,
