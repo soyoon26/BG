@@ -1,4 +1,6 @@
+@import "../../styles/fonts.css";
 .bar {
+  font-family: "Radio", sans-serif;
   display: flex;
   justify-content: flex-end;
 }

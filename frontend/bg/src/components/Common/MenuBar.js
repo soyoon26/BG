@@ -48,7 +48,7 @@ const MenuBar = () => {
       <div className="pt-3 text-2xl">|</div>
       <div
         className="p-3 text-2xl"
-        onClick={handleClickMap}
+        onClick={handleClickAbout}
         style={{ cursor: "pointer" }}
       >
         {" "}
