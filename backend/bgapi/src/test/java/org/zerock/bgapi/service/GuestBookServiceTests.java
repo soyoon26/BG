@@ -22,7 +22,7 @@ public class GuestBookServiceTests {
         GuestBookDTO guestbookDTO = GuestBookDTO.builder()
         .content("테스트 진행")
         .writer("superuser")
-        .dueDate(LocalDate.of(2024,02,12))
+        .date(LocalDate.of(2024,04,12))
         .build();
 
         Long no = guestbookService.register(guestbookDTO);

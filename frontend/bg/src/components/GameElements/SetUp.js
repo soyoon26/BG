@@ -1,7 +1,9 @@
 //게임 단계 설정
 import setup_back from "../../images/back_circle.png";
 import SelectMenu from "../Button/SelectMenu";
+import MenuBar from "../Common/MenuBar";
 import "./SetUp.css";
+
 const SetUp = ({ next }) => {
   const backStyles = {
     backgroundImage: `url(${setup_back})`,
@@ -11,9 +13,8 @@ const SetUp = ({ next }) => {
 
   return (
     <div style={backStyles}>
-      <div className=" flex justify-end p-5 font-large">
-        <SelectMenu className="p-5"></SelectMenu>
-      </div>
+      <MenuBar />
+
       <div className="select-txt font3-sub mt-1">단계를 선택해주세요!</div>
       <div className="step">
         <div

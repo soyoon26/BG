@@ -31,18 +31,20 @@ public class PageResponseDTO<E> {
 
         end = end > last ? last: end;
 
-        this.prev = start > 1;
-
-        this.next = totalCount > end * pageRequestDTO.getSize();
+       
         this.pageNumList = IntStream.rangeClosed(start,end).boxed().collect(Collectors.toList());
 
-        if(prev) {
-            this.prevPage = start -1;
-        }
-        if(next) {
-            this.nextPage = end + 1;
-        }
+        
         this.totalPage = this.pageNumList.size();
         this.current = pageRequestDTO.getPage();
+        this.prev = this.current != totalPage;
+
+        this.next = this.current != 1;
+        if(prev) {
+            this.prevPage = this.current + 1;
+        }
+        if(next) {
+            this.nextPage = this.current - 1;
+        }
     }
 }

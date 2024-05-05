@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import back from "../../images/back_check.png";
-import SelectMenu from "../Button/SelectMenu";
+import MenuBar from "../Common/MenuBar";
 
 import "./Score.css";
 
@@ -15,35 +15,27 @@ const Score = ({ level, score }) => {
   console.log(score, "점수확인");
   const finalScore = score < 0 ? 0 : score;
   return (
-    <div className="parent-container" style={backStyles}>
-      <div className="circle">
-        <div className="score-container-s">
-          당신의 점수는
-          <br />
-          <div className="container">
-            <div className="score-text">{finalScore}점</div>
-            입니다.
+    <div className="menu-container">
+      <MenuBar />
+      <div className="parent-container" style={backStyles}>
+        <div className="circle">
+          <div className="score-container-s">
+            당신의 점수는
             <br />
+            <div className="container">
+              <div className="score-text">{finalScore}점</div>
+              입니다.
+              <br />
+            </div>
           </div>
-        </div>
-        <div className="select-container-s">
-          {/* <SelectMenu /> */}
-          <div className="btns flex justify-end p-5 font-large">
-            <Link to={"../about"}>
-              <button className="font3 bg-green-900 text-white p-3 mt-1 ml-3 rounded-lg">
-                사이트 정보
-              </button>
-            </Link>
-            <Link to={"../select"}>
-              <button className="font3 bg-green-900 text-white p-3 mt-1 ml-3 rounded-lg">
-                게임 선택 화면으로 돌아가기
-              </button>
-            </Link>
-            <Link to={"../map"}>
-              <button className="font3 bg-green-900 text-white p-3 mt-1 ml-3 rounded-lg">
-                병원 지도찾기🏥
-              </button>
-            </Link>
+          <div className="select-container-s">
+            <div className="btns flex justify-end p-5 font-large">
+              <Link to={"../select"}>
+                <button className="font3 text-2xl bg-green-900 text-white p-4 mt-3  rounded-lg">
+                  다시 게임하기
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

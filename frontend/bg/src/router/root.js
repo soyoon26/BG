@@ -1,4 +1,5 @@
-import { Suspense, lazy } from "react";
+import { Children, Suspense, lazy } from "react";
+import guestbookRouter from "./guestbookRouter";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -16,6 +17,8 @@ const CardPage = lazy(() => import("../pages/CardPage"));
 const NumberPage = lazy(() => import("../pages/NumberPage"));
 const MapPage = lazy(() => import("../pages/MapPage"));
 const SignUpPage = lazy(() => import("../pages/SignUpPage"));
+const GuestIndex = lazy(() => import("../pages/guestbook/IndexPage"));
+const GuestList = lazy(() => import("../pages/guestbook/ListPage"));
 
 const root = createBrowserRouter([
   {
@@ -117,6 +120,15 @@ const root = createBrowserRouter([
         <SignUpPage />
       </Suspense>
     ),
+  },
+  {
+    path: "guestbook",
+    element: (
+      <Suspense fallback={Loading}>
+        <GuestIndex />
+      </Suspense>
+    ),
+    children: guestbookRouter(),
   },
 ]);
 //어떤 컴포넌트를 보여줄 것인지 결정하는 역할

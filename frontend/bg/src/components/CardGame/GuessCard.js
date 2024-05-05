@@ -4,8 +4,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { getOne } from "../../api/cardApi";
 import StopMenu from "../Button/StopMenu";
 import back from "../../images/back_ivory.png";
+import Modal from "../Common/Modal";
 import "./GuessCard.css";
 const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
+  const [result, setResult] = useState(null);
   const backStyles = {
     backgroundImage: `url(${back})`,
     backgroundSize: "cover",
@@ -53,6 +55,9 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
   ];
   const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
   const optKind = [pictureCards, numberCards];
+  const closeModal = () => {
+    setResult(null);
+  };
   //shuffle - Fisher-Yates 알고리즘
   function shuffle(array) {
     const shuffledArray = [...array]; // 원본 배열을 복사하여 새로운 배열 생성
@@ -123,7 +128,7 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
   const handleClick = (index) => {
     console.log(index);
     if (index == ansIdx) {
-      alert("정답입니다!");
+      setResult(1);
       setOrder(order + 1);
       console.log(order, "order");
       console.log(score.current);
@@ -131,7 +136,7 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
         nextCard("score", level, usedPicture, score.current);
       }
     } else {
-      alert("틀렸습니다. 다시 골라주세요!");
+      setResult(2);
       score.current -= 5;
       console.log(ansIdx, index);
     }
@@ -140,6 +145,16 @@ const GuessCard = ({ nextCard, level, usedPicture, usedNumber }) => {
 
   return (
     <div style={backStyles}>
+      {result === 1 && (
+        <Modal content={"정답입니다!"} callbackFn={closeModal} />
+      )}
+      {result === 2 && (
+        <Modal
+          content={"틀렸습니다. 다시 골라주세요!"}
+          callbackFn={closeModal}
+        />
+      )}
+      {result === null && <></>}
       <div className="step-info">
         {level}단계 게임 / {order + 1}번째 문제: 어떤 카드와 짝이었을까요?{" "}
         <StopMenu />

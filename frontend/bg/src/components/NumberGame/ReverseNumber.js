@@ -3,6 +3,7 @@ import back from "../../images/back_ivory.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getOne } from "../../api/cardApi";
 import StopMenu from "../Button/StopMenu";
+import Modal from "../Common/Modal";
 import "./ReverseNumber.css";
 
 const ReverseNumber = ({ nextCard, level, usedNumber }) => {
@@ -11,6 +12,7 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
     backgroundSize: "cover",
     height: "100vh",
   };
+  const [result, setResult] = useState(null);
   const pbCnt = level === 1 ? 4 : level === 2 ? 7 : 9; //스텝에 따른 문제수
   const numberCards = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
   const [final, setFinal] = useState([]);
@@ -18,6 +20,9 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
   const score = useRef(100);
   const reverseArr = [...usedNumber].reverse();
   console.log(reverseArr, "거꾸로");
+  const closeModal = () => {
+    setResult(null);
+  };
   const fetchAllUrls = async (numberArray) => {
     const urlArray = [];
     for (const number of numberArray) {
@@ -41,13 +46,15 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
     console.log("order", order.current);
     console.log("클릭해야됨", event, reverseArr[order.current]);
     if (event + 1 == reverseArr[order.current]) {
-      alert("정답입니다!");
+      setResult(1);
+
       order.current += 1;
       if (order.current == pbCnt) {
         nextCard("score", level, score.current);
       }
     } else {
-      alert("틀렸습니다. 다시 골라주세요!");
+      setResult(2);
+
       score.current -= 5;
     }
     console.log(event);
@@ -55,6 +62,16 @@ const ReverseNumber = ({ nextCard, level, usedNumber }) => {
 
   return (
     <div style={backStyles}>
+      {result === 1 && (
+        <Modal content={"정답입니다!"} callbackFn={closeModal} />
+      )}
+      {result === 2 && (
+        <Modal
+          content={"틀렸습니다. 다시 골라주세요!"}
+          callbackFn={closeModal}
+        />
+      )}
+      {result === null && <></>}
       <div className="step-info">
         {level}단계 게임 / {order.current + 1}번째 문제 <StopMenu />
       </div>

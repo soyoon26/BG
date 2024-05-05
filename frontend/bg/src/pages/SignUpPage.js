@@ -13,10 +13,16 @@ function SignUpPage() {
     try {
       const response = await axios.post("http://localhost:8080/api/signup", {
         email,
-        pw: password,
+        password,
         nickname,
       });
-      setMessage(response.data);
+
+      if (response.data.error) {
+        setMessage(response.data.error);
+        console.log("???", response);
+      } else {
+        setMessage("회원가입이 완료되었습니다.");
+      }
     } catch (error) {
       setMessage("회원가입에 실패했습니다.");
       console.error(error);

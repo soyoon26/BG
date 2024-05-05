@@ -14,9 +14,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class GuestBookDTO {
     private Long no;
+    private String title;
     private String content;
     private String writer;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate dueDate;
+    private LocalDate date;
 }
